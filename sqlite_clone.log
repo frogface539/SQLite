@@ -65,3 +65,261 @@
 2025-05-03 15:29:22,577 - compiler.tokenizer - DEBUG - Matched KEYWORD: 'FROM' at position 9
 2025-05-03 15:29:22,578 - compiler.tokenizer - DEBUG - Matched IDENTIFIER: 'table' at position 14
 2025-05-03 15:29:22,578 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = table), position = 14]
+2025-05-03 16:47:24,034 - __main__ - INFO - 
+Processing query: SELECT * FROM users
+2025-05-03 16:47:24,035 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = users), position = 14]
+2025-05-03 16:47:24,035 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = users), position = 14]
+2025-05-03 16:47:24,035 - __main__ - ERROR - Unexpected error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 23, in main
+    word = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:47:24,050 - __main__ - INFO - 
+Processing query: SELECT name, age FROM employees
+2025-05-03 16:47:24,050 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = IDENTIFIER, value = name), position = 7, Token(type = COMMA, value = ,), position = 11, Token(type = IDENTIFIER, value = age), position = 13, Token(type = KEYWORD, value = FROM), position = 17, Token(type = IDENTIFIER, value = employees), position = 22]
+2025-05-03 16:47:24,050 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = IDENTIFIER, value = name), position = 7, Token(type = COMMA, value = ,), position = 11, Token(type = IDENTIFIER, value = age), position = 13, Token(type = KEYWORD, value = FROM), position = 17, Token(type = IDENTIFIER, value = employees), position = 22]
+2025-05-03 16:47:24,050 - __main__ - ERROR - Unexpected error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 23, in main
+    word = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:47:28,283 - __main__ - INFO - 
+Processing query: SELECT * FROM users
+2025-05-03 16:47:28,284 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = users), position = 14]
+2025-05-03 16:47:28,284 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = users), position = 14]
+2025-05-03 16:47:28,284 - __main__ - ERROR - Unexpected error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 23, in main
+    word = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:47:28,292 - __main__ - INFO - 
+Processing query: SELECT name, age FROM employees
+2025-05-03 16:47:28,293 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = IDENTIFIER, value = name), position = 7, Token(type = COMMA, value = ,), position = 11, Token(type = IDENTIFIER, value = age), position = 13, Token(type = KEYWORD, value = FROM), position = 17, Token(type = IDENTIFIER, value = employees), position = 22]
+2025-05-03 16:47:28,293 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = IDENTIFIER, value = name), position = 7, Token(type = COMMA, value = ,), position = 11, Token(type = IDENTIFIER, value = age), position = 13, Token(type = KEYWORD, value = FROM), position = 17, Token(type = IDENTIFIER, value = employees), position = 22]
+2025-05-03 16:47:28,293 - __main__ - ERROR - Unexpected error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 23, in main
+    word = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:48:53,647 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchi), position = 14]
+2025-05-03 16:48:53,647 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchi), position = 14]
+2025-05-03 16:48:53,648 - __main__ - ERROR - Unexpected Error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 28, in main
+    ast = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:49:28,388 - compiler.tokenizer - ERROR - Invalid token at 20: ;
+2025-05-03 16:49:28,389 - __main__ - ERROR - Tokenization Error: Invalid token at 20: ;
+2025-05-03 16:49:33,223 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9]
+2025-05-03 16:49:33,223 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9]
+2025-05-03 16:49:33,223 - __main__ - ERROR - Unexpected Error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 28, in main
+    ast = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:50:12,534 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 16:50:12,534 - __main__ - ERROR - Tokenization Error: Invalid token at 0: &
+2025-05-03 16:50:21,085 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9]
+2025-05-03 16:50:21,085 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9]
+2025-05-03 16:50:21,085 - __main__ - ERROR - Unexpected Error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 28, in main
+    ast = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:50:28,210 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchu), position = 14]
+2025-05-03 16:50:28,210 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchu), position = 14]
+2025-05-03 16:50:28,210 - __main__ - ERROR - Unexpected Error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 28, in main
+    ast = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    if current and current[0] == "KEYWORD" and current[1] == "SELECT":
+                   ~~~~~~~^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:53:40,212 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 16:53:40,212 - __main__ - ERROR - Tokenization Error: Invalid token at 0: &
+2025-05-03 16:53:48,468 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchu), position = 14]
+2025-05-03 16:53:48,468 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchu), position = 14]
+2025-05-03 16:53:48,468 - __main__ - ERROR - Unexpected Error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 28, in main
+    ast = parser.parse()
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    return self.select_statement()
+               ^^^^^^^^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:54:25,878 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 16:54:25,879 - __main__ - ERROR - Tokenization Error: Invalid token at 0: &
+2025-05-03 16:54:31,997 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 6, Token(type = KEYWORD, value = FROM), position = 8, Token(type = IDENTIFIER, value = g), position = 13]
+2025-05-03 16:54:31,997 - __main__ - DEBUG - Tokens: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 6, Token(type = KEYWORD, value = FROM), position = 8, Token(type = IDENTIFIER, value = g), position = 13]
+2025-05-03 16:54:31,997 - __main__ - ERROR - Unexpected Error: 'Token' object is not subscriptable
+Traceback (most recent call last):
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\main.py", line 28, in main
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 16, in parse
+    return self.sql_statement()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "c:\Users\LAKSHAY JAIN\Downloads\CODING\DATA SCIENCE\SQLite Project\compiler\parser.py", line 37, in sql_statement
+    return self.select_statement()
+               ^^^^^^^^^^
+TypeError: 'Token' object is not subscriptable
+2025-05-03 16:54:37,492 - compiler.tokenizer - ERROR - Invalid token at 24: ;
+2025-05-03 16:54:37,492 - compiler.tokenizer - ERROR - Invalid token at 39: ;
+2025-05-03 16:54:37,492 - compiler.tokenizer - ERROR - Invalid token at 55: ;
+2025-05-03 16:55:33,534 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = table_name), position = 14, Token(type = SEMICOLON, value = ;), position = 24]
+2025-05-03 16:55:33,534 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 16:55:33,534 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT), position = 0
+2025-05-03 16:55:33,534 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-03 16:55:33,534 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *), position = 7
+2025-05-03 16:55:33,534 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM), position = 9
+2025-05-03 16:55:33,534 - compiler.parser - DEBUG - Found table name: table_name
+2025-05-03 16:55:33,534 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table_name), position = 14
+2025-05-03 16:55:33,534 - compiler.parser - INFO - SELECT parsed: columns = ['*'] , table = table_name
+2025-05-03 16:55:33,535 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = IDENTIFIER, value = column1), position = 7, Token(type = COMMA, value = ,), position = 14, Token(type = IDENTIFIER, value = column2), position = 16, Token(type = KEYWORD, value = FROM), position = 24, Token(type = IDENTIFIER, value = table_name), position = 29, Token(type = SEMICOLON, value = ;), position = 39]
+2025-05-03 16:55:33,535 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT), position = 0
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1), position = 7
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,), position = 14
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Found Column: column2
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2), position = 16
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM), position = 24
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Found table name: table_name
+2025-05-03 16:55:33,535 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table_name), position = 29
+2025-05-03 16:55:33,535 - compiler.parser - INFO - SELECT parsed: columns = ['column1', 'column2'] , table = table_name
+2025-05-03 16:55:33,536 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT), position = 0, Token(type = KEYWORD, value = INTO), position = 7, Token(type = IDENTIFIER, value = table_name), position = 12, Token(type = KEYWORD, value = VALUES), position = 23, Token(type = LPAREN, value = (), position = 30, Token(type = QUOTE, value = '), position = 31, Token(type = IDENTIFIER, value = value1), position = 32, Token(type = QUOTE, value = '), position = 38, Token(type = COMMA, value = ,), position = 39, Token(type = NUMBER, value = 123), position = 41, Token(type = COMMA, value = ,), position = 44, Token(type = QUOTE, value = '), position = 46, Token(type = IDENTIFIER, value = value2), position = 47, Token(type = QUOTE, value = '), position = 53, Token(type = RPAREN, value = )), position = 54, Token(type = SEMICOLON, value = ;), position = 55]
+2025-05-03 16:55:33,536 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-03 16:55:33,536 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT), position = 0
+2025-05-03 16:55:33,536 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO), position = 7
+2025-05-03 16:55:33,536 - compiler.parser - DEBUG - Found table name: table_name
+2025-05-03 16:55:33,536 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table_name), position = 12
+2025-05-03 16:55:33,536 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VALUES), position = 23
+2025-05-03 16:55:33,536 - compiler.parser - ERROR - Expected at least one value in INSERT statement.
+2025-05-03 16:55:41,408 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = table_name), position = 14, Token(type = SEMICOLON, value = ;), position = 24]
+2025-05-03 16:55:41,409 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT), position = 0
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *), position = 7
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM), position = 9
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Found table name: table_name
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table_name), position = 14
+2025-05-03 16:55:41,409 - compiler.parser - INFO - SELECT parsed: columns = ['*'] , table = table_name
+2025-05-03 16:55:41,409 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = IDENTIFIER, value = column1), position = 7, Token(type = COMMA, value = ,), position = 14, Token(type = IDENTIFIER, value = column2), position = 16, Token(type = KEYWORD, value = FROM), position = 24, Token(type = IDENTIFIER, value = table_name), position = 29, Token(type = SEMICOLON, value = ;), position = 39]
+2025-05-03 16:55:41,409 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT), position = 0
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1), position = 7
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,), position = 14
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Found Column: column2
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2), position = 16
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM), position = 24
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Found table name: table_name
+2025-05-03 16:55:41,409 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table_name), position = 29
+2025-05-03 16:55:41,409 - compiler.parser - INFO - SELECT parsed: columns = ['column1', 'column2'] , table = table_name
+2025-05-03 16:55:41,410 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT), position = 0, Token(type = KEYWORD, value = INTO), position = 7, Token(type = IDENTIFIER, value = table_name), position = 12, Token(type = KEYWORD, value = VALUES), position = 23, Token(type = LPAREN, value = (), position = 30, Token(type = QUOTE, value = '), position = 31, Token(type = IDENTIFIER, value = value1), position = 32, Token(type = QUOTE, value = '), position = 38, Token(type = COMMA, value = ,), position = 39, Token(type = NUMBER, value = 123), position = 41, Token(type = COMMA, value = ,), position = 44, Token(type = QUOTE, value = '), position = 46, Token(type = IDENTIFIER, value = value2), position = 47, Token(type = QUOTE, value = '), position = 53, Token(type = RPAREN, value = )), position = 54, Token(type = SEMICOLON, value = ;), position = 55]
+2025-05-03 16:55:41,410 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-03 16:55:41,410 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT), position = 0
+2025-05-03 16:55:41,410 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO), position = 7
+2025-05-03 16:55:41,410 - compiler.parser - DEBUG - Found table name: table_name
+2025-05-03 16:55:41,410 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table_name), position = 12
+2025-05-03 16:55:41,410 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VALUES), position = 23
+2025-05-03 16:55:41,410 - compiler.parser - ERROR - Expected at least one value in INSERT statement.
+2025-05-03 16:58:49,553 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = table), position = 14]
+2025-05-03 16:59:50,872 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = table), position = 14]
+2025-05-03 17:00:17,915 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT), position = 0, Token(type = KEYWORD, value = INTO), position = 7, Token(type = IDENTIFIER, value = table), position = 12]
+2025-05-03 17:07:32,142 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = table, position = 14), Token(type = SEMICOLON, value = ;, position = 19)]
+2025-05-03 17:07:32,142 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:07:32,143 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:07:32,143 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-03 17:07:32,143 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-03 17:07:32,143 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-03 17:07:32,143 - compiler.parser - DEBUG - Found table name: table
+2025-05-03 17:07:32,143 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table, position = 14)
+2025-05-03 17:07:32,143 - compiler.parser - INFO - SELECT parsed: columns = ['*'], table = table
+2025-05-03 17:08:33,547 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = table, position = 14), Token(type = COMMA, value = ,, position = 19)]
+2025-05-03 17:08:33,548 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:08:33,548 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:08:33,548 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-03 17:08:33,548 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-03 17:08:33,548 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-03 17:08:33,548 - compiler.parser - DEBUG - Found table name: table
+2025-05-03 17:08:33,548 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table, position = 14)
+2025-05-03 17:08:33,548 - compiler.parser - INFO - SELECT parsed: columns = ['*'], table = table
+2025-05-03 17:08:58,829 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = table, position = 14), Token(type = COMMA, value = ,, position = 20), Token(type = KEYWORD, value = INSERT, position = 22)]
+2025-05-03 17:08:58,829 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:08:58,829 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:08:58,829 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-03 17:08:58,830 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-03 17:08:58,830 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-03 17:08:58,830 - compiler.parser - DEBUG - Found table name: table
+2025-05-03 17:08:58,830 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table, position = 14)
+2025-05-03 17:08:58,830 - compiler.parser - INFO - SELECT parsed: columns = ['*'], table = table
+2025-05-03 17:10:40,373 - compiler.tokenizer - ERROR - Invalid token at 47: .
+2025-05-03 17:11:05,223 - compiler.tokenizer - ERROR - Invalid token at 47: .
+2025-05-03 17:11:26,841 - compiler.tokenizer - ERROR - Invalid token at 47: .
+2025-05-03 17:12:09,819 - compiler.tokenizer - ERROR - Invalid token at 51: =
+2025-05-03 17:13:00,569 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:13:00,570 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:13:00,570 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:13:00,570 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:13:00,570 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:13:00,570 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:13:00,570 - compiler.parser - DEBUG - Found table name: table1
+2025-05-03 17:13:00,570 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:13:00,570 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], table = table1
+2025-05-03 17:16:01,676 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:16:01,676 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Found table name: table1
+2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:16:01,677 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], table = table1

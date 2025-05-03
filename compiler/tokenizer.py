@@ -18,7 +18,10 @@ patterns = [
     (r"\)", "RPAREN"),
     (r"'", "QUOTE"),
     (r"[0-9]+", "NUMBER"),
-    (r"\s+", None),  # Skip whitespace
+    (r"\s+", None), # Skip whitespace
+    (r";", "SEMICOLON"), 
+    (r"\.", "DOT"),
+    (r"=", "EQUALS"),
 ]
 
 class Tokenizer:
@@ -37,7 +40,7 @@ class Tokenizer:
                     if token_type:
                         value = match_text.upper() if token_type == "KEYWORD" else match_text 
 
-                        token = Token(type_ = token_type , value = value , position = i)
+                        token = Token(token_type = token_type , value = value , position = i)
                         tokens.append(token)
 
                     i = match.end() 

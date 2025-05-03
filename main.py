@@ -1,22 +1,31 @@
 from compiler.tokenizer import Tokenizer
-from utils.errors import SQLiteCloneError
-from utils.logger import get_logger
+from compiler.parser import Parser
+from utils.errors import TokenizationError, ParsingError
 
-logger = get_logger(__name__)
+# Initialize Tokenizer
+tokenizer = Tokenizer()
 
-def main():
-    tokenizer = Tokenizer()
-    while True:
-        try:
-            sql = input("sqlite> ").strip()
-            if sql.lower() == "exit":
-                break
-            tokens = tokenizer.tokenize(sql)
-            print("Tokens:", tokens)
-        except SQLiteCloneError as e:
-            logger.error(f"Error: {e}")
-        except Exception as e:
-            logger.exception("Unexpected error")
+# Prompt user for a SQL query
+# query = input("Enter your SQL query: ")
+query = "select column1 from table1, table2 where table1.id = table2.id;"
 
-if __name__ == "__main__":
-    main()
+print(f"Parsing Query: {query}")
+
+try:
+    # Tokenizing the query
+    tokens = tokenizer.tokenize(query)
+    print(f"Tokens: {tokens}")
+
+    # Initialize Parser with the tokens
+    parser = Parser(tokens)
+
+    # Parse the SQL statement
+    result = parser.parse()
+    print(f"Parsed Result: {result}")
+
+except TokenizationError as e:
+    print(f"Tokenization Error: {e}")
+except ParsingError as e:
+    print(f"Parsing Error: {e}")
+except Exception as e:
+    print(f"Unexpected Error: {e}")

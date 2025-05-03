@@ -323,3 +323,259 @@ TypeError: 'Token' object is not subscriptable
 2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Found table name: table1
 2025-05-03 17:16:01,677 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
 2025-05-03 17:16:01,677 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], table = table1
+2025-05-03 17:23:35,616 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:23:35,616 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:23:35,616 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:23:35,616 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:23:35,616 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:23:35,616 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:24:36,071 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:24:36,071 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:24:36,071 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:24:36,071 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:24:36,071 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:24:36,071 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:25:19,108 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:25:19,108 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:25:19,109 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:25:19,109 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:25:19,109 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:25:19,109 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:27:19,609 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:27:56,731 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:28:11,351 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:28:11,351 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:28:11,352 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:28:11,352 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:28:11,352 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:28:11,352 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:29:37,523 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:30:48,959 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:30:48,959 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:30:48,959 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:30:48,959 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:30:48,959 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:30:48,959 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:30:48,959 - compiler.parser - DEBUG - Found table name: table1
+2025-05-03 17:30:48,959 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:30:48,960 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], table = table1
+2025-05-03 17:33:11,183 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:33:11,183 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Found Table: table1
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 26)
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Found Table: table2
+2025-05-03 17:33:11,184 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table2, position = 28)
+2025-05-03 17:33:11,184 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], tables = ['table1', 'table2']
+2025-05-03 17:34:40,401 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:34:40,401 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Found Table: table1
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 26)
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Found Table: table2
+2025-05-03 17:34:40,401 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table2, position = 28)
+2025-05-03 17:34:40,401 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], tables = ['table1', 'table2']
+2025-05-03 17:38:06,569 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:38:06,570 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:38:06,570 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Found Table: table1
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 26)
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Found Table: table2
+2025-05-03 17:38:06,571 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table2, position = 28)
+2025-05-03 17:38:06,571 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], tables = ['table1', 'table2']
+2025-05-03 17:38:39,066 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:38:39,068 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Found Column: column1
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Found Table: table1
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 26)
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Found Table: table2
+2025-05-03 17:38:39,068 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table2, position = 28)
+2025-05-03 17:38:39,068 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], tables = ['table1', 'table2']
+2025-05-03 17:38:57,597 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-03 17:38:57,598 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-03 17:38:57,598 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-05-03 17:38:57,598 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-03 17:38:57,598 - compiler.parser - ERROR - Expected a table name..
+2025-05-03 17:39:37,986 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = create, position = 0), Token(type = IDENTIFIER, value = table, position = 7), Token(type = IDENTIFIER, value = huni, position = 13)]
+2025-05-03 17:39:37,986 - compiler.parser - ERROR - Invalid SQL statement found: Token(type = IDENTIFIER, value = create, position = 0)
+2025-05-04 02:51:42,067 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = table, position = 14)]
+2025-05-04 02:51:42,068 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-04 02:51:42,068 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 02:51:42,068 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-04 02:51:42,068 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-04 02:51:42,068 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-04 02:51:42,068 - compiler.parser - DEBUG - Found Table: table
+2025-05-04 02:51:42,068 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table, position = 14)
+2025-05-04 02:51:42,068 - compiler.parser - INFO - SELECT parsed: columns = ['*'], tables = ['table']
+2025-05-04 03:31:30,207 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = pinchi, position = 14)]
+2025-05-04 03:31:30,207 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-04 03:31:30,207 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 03:31:30,207 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-04 03:31:30,207 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-04 03:31:30,207 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-04 03:31:30,207 - compiler.parser - DEBUG - Found Table: pinchi
+2025-05-04 03:31:30,208 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = pinchi, position = 14)
+2025-05-04 03:31:30,208 - compiler.parser - INFO - SELECT parsed: columns = ['*'], tables = ['pinchi']
+2025-05-04 03:31:51,726 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = fetch, position = 0), Token(type = ASTERISK, value = *, position = 6), Token(type = KEYWORD, value = FROM, position = 8), Token(type = IDENTIFIER, value = sasnkar, position = 13)]
+2025-05-04 03:31:51,726 - compiler.parser - ERROR - Invalid SQL statement found: Token(type = IDENTIFIER, value = fetch, position = 0)
+2025-05-04 03:32:16,404 - compiler.tokenizer - ERROR - Invalid token at 18: @
+2025-05-04 03:33:55,910 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-04 03:33:55,911 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-04 03:33:55,911 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-05-04 03:33:55,911 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-04 03:33:55,911 - compiler.parser - ERROR - Expected a table name..
+2025-05-04 03:34:23,765 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-04 03:34:23,767 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-04 03:34:23,767 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-05-04 03:34:23,767 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-04 03:34:23,767 - compiler.parser - ERROR - Expected a table name..
+2025-05-04 03:34:57,430 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-04 03:34:57,431 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-04 03:34:57,431 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-05-04 03:34:57,431 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-04 03:34:57,431 - compiler.parser - ERROR - Expected a table name..
+2025-05-04 03:36:05,630 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = KEYWORD, value = INTO, position = 7), Token(type = IDENTIFIER, value = column1, position = 12), Token(type = KEYWORD, value = FROM, position = 20), Token(type = IDENTIFIER, value = table1, position = 25), Token(type = COMMA, value = ,, position = 31), Token(type = IDENTIFIER, value = table2, position = 33), Token(type = IDENTIFIER, value = where, position = 40), Token(type = IDENTIFIER, value = table1, position = 46), Token(type = DOT, value = ., position = 52), Token(type = IDENTIFIER, value = id, position = 53), Token(type = EQUALS, value = =, position = 56), Token(type = IDENTIFIER, value = table2, position = 58), Token(type = DOT, value = ., position = 64), Token(type = IDENTIFIER, value = id, position = 65), Token(type = SEMICOLON, value = ;, position = 67)]
+2025-05-04 03:36:05,631 - compiler.parser - INFO - Parsing INSERT statement.
+2025-05-04 03:36:05,631 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-05-04 03:36:05,631 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO, position = 7)
+2025-05-04 03:36:05,631 - compiler.parser - DEBUG - Found table name: column1
+2025-05-04 03:36:05,631 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 12)
+2025-05-04 03:36:05,631 - compiler.parser - ERROR - Expected 'VALUES' in INSERT statement.
+2025-05-04 03:36:18,397 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column1, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = table1, position = 20), Token(type = COMMA, value = ,, position = 26), Token(type = IDENTIFIER, value = table2, position = 28), Token(type = IDENTIFIER, value = where, position = 35), Token(type = IDENTIFIER, value = table1, position = 41), Token(type = DOT, value = ., position = 47), Token(type = IDENTIFIER, value = id, position = 48), Token(type = EQUALS, value = =, position = 51), Token(type = IDENTIFIER, value = table2, position = 53), Token(type = DOT, value = ., position = 59), Token(type = IDENTIFIER, value = id, position = 60), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-05-04 03:36:18,397 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-04 03:36:18,397 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Found Column: column1
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column1, position = 7)
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Found Table: table1
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 20)
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 26)
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Found Table: table2
+2025-05-04 03:36:18,398 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table2, position = 28)
+2025-05-04 03:36:18,398 - compiler.parser - INFO - SELECT parsed: columns = ['column1'], tables = ['table1', 'table2']
+2025-05-04 03:36:59,816 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = table1, position = 14), Token(type = COMMA, value = ,, position = 20), Token(type = IDENTIFIER, value = table2, position = 22), Token(type = IDENTIFIER, value = where, position = 29), Token(type = IDENTIFIER, value = table1, position = 35), Token(type = DOT, value = ., position = 41), Token(type = IDENTIFIER, value = id, position = 42), Token(type = EQUALS, value = =, position = 45), Token(type = IDENTIFIER, value = table2, position = 47), Token(type = DOT, value = ., position = 53), Token(type = IDENTIFIER, value = id, position = 54), Token(type = SEMICOLON, value = ;, position = 56)]
+2025-05-04 03:36:59,817 - compiler.parser - INFO - Parsing SELECT statement
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Found '*' , selecting all columns....
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Found Table: table1
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table1, position = 14)
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 20)
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Found Table: table2
+2025-05-04 03:36:59,817 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = table2, position = 22)
+2025-05-04 03:36:59,817 - compiler.parser - INFO - SELECT parsed: columns = ['*'], tables = ['table1', 'table2']
+2025-05-04 04:23:11,318 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = IDENTIFIER, value = SET, position = 16), Token(type = IDENTIFIER, value = price, position = 20), Token(type = EQUALS, value = =, position = 26), Token(type = NUMBER, value = 799, position = 28), Token(type = DOT, value = ., position = 31), Token(type = NUMBER, value = 99, position = 32), Token(type = IDENTIFIER, value = WHERE, position = 35), Token(type = IDENTIFIER, value = id, position = 41), Token(type = EQUALS, value = =, position = 44), Token(type = NUMBER, value = 5, position = 46), Token(type = SEMICOLON, value = ;, position = 47)]
+2025-05-04 04:23:11,318 - compiler.parser - ERROR - Invalid SQL statement: Token(type = IDENTIFIER, value = UPDATE, position = 0)
+2025-05-04 04:25:36,265 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = SET, position = 16), Token(type = IDENTIFIER, value = price, position = 20), Token(type = EQUALS, value = =, position = 26), Token(type = NUMBER, value = 799.99, position = 28), Token(type = KEYWORD, value = WHERE, position = 35), Token(type = IDENTIFIER, value = id, position = 41), Token(type = EQUALS, value = =, position = 44), Token(type = NUMBER, value = 5, position = 46), Token(type = SEMICOLON, value = ;, position = 47)]
+2025-05-04 04:25:36,266 - compiler.statements.update_parser - INFO - Parsing UPDATE statement...
+2025-05-04 04:25:36,266 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = UPDATE, position = 0)
+2025-05-04 04:25:36,266 - compiler.parser - DEBUG - Found table name: products
+2025-05-04 04:25:36,266 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 7)
+2025-05-04 04:25:36,266 - compiler.statements.update_parser - DEBUG - UPDATE table: products
+2025-05-04 04:25:36,266 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SET, position = 16)
+2025-05-04 04:26:59,669 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = SET, position = 16), Token(type = IDENTIFIER, value = price, position = 20), Token(type = EQUALS, value = =, position = 26), Token(type = NUMBER, value = 799.99, position = 28), Token(type = KEYWORD, value = WHERE, position = 35), Token(type = IDENTIFIER, value = id, position = 41), Token(type = EQUALS, value = =, position = 44), Token(type = NUMBER, value = 5, position = 46), Token(type = SEMICOLON, value = ;, position = 47)]
+2025-05-04 04:26:59,670 - compiler.statements.update_parser - INFO - Parsing UPDATE statement...
+2025-05-04 04:26:59,670 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = UPDATE, position = 0)
+2025-05-04 04:26:59,670 - compiler.parser - DEBUG - Found table name: products
+2025-05-04 04:26:59,670 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 7)
+2025-05-04 04:26:59,670 - compiler.statements.update_parser - DEBUG - UPDATE table: products
+2025-05-04 04:26:59,670 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SET, position = 16)
+2025-05-04 04:29:14,799 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = SET, position = 16), Token(type = IDENTIFIER, value = price, position = 20), Token(type = EQUALS, value = =, position = 26), Token(type = NUMBER, value = 799.99, position = 28), Token(type = KEYWORD, value = WHERE, position = 35), Token(type = IDENTIFIER, value = id, position = 41), Token(type = EQUALS, value = =, position = 44), Token(type = NUMBER, value = 5, position = 46), Token(type = SEMICOLON, value = ;, position = 47)]
+2025-05-04 04:29:14,800 - compiler.statements.update_parser - INFO - Parsing UPDATE statement...
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = UPDATE, position = 0)
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Found table name: products
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 7)
+2025-05-04 04:29:14,800 - compiler.statements.update_parser - DEBUG - UPDATE table: products
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SET, position = 16)
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = price, position = 20)
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 26)
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 799.99, position = 28)
+2025-05-04 04:29:14,800 - compiler.statements.update_parser - DEBUG - SET clause: [('price', '799.99')]
+2025-05-04 04:29:14,800 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = WHERE, position = 35)
+2025-05-04 04:33:25,139 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = SET, position = 16), Token(type = IDENTIFIER, value = price, position = 20), Token(type = EQUALS, value = =, position = 26), Token(type = NUMBER, value = 799.99, position = 28), Token(type = KEYWORD, value = WHERE, position = 35), Token(type = IDENTIFIER, value = id, position = 41), Token(type = EQUALS, value = =, position = 44), Token(type = NUMBER, value = 5, position = 46), Token(type = SEMICOLON, value = ;, position = 47)]
+2025-05-04 04:33:25,140 - compiler.statements.update_parser - INFO - Parsing UPDATE statement...
+2025-05-04 04:33:25,140 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = UPDATE, position = 0)
+2025-05-04 04:33:25,140 - compiler.parser - DEBUG - Found table name: products
+2025-05-04 04:33:25,140 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 7)
+2025-05-04 04:33:25,141 - compiler.statements.update_parser - DEBUG - UPDATE table: products
+2025-05-04 04:33:25,141 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SET, position = 16)
+2025-05-04 04:33:25,141 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = price, position = 20)
+2025-05-04 04:33:25,141 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 26)
+2025-05-04 04:33:25,141 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 799.99, position = 28)
+2025-05-04 04:33:25,141 - compiler.statements.update_parser - DEBUG - SET clause: [('price', '799.99')]
+2025-05-04 04:33:25,141 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = WHERE, position = 35)
+2025-05-04 04:34:31,481 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = WHERE, position = 16), Token(type = IDENTIFIER, value = id, position = 22), Token(type = EQUALS, value = =, position = 25), Token(type = NUMBER, value = 5, position = 27), Token(type = SEMICOLON, value = ;, position = 28)]
+2025-05-04 04:34:31,481 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:36:54,541 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = WHERE, position = 16), Token(type = IDENTIFIER, value = id, position = 22), Token(type = EQUALS, value = =, position = 25), Token(type = NUMBER, value = 5, position = 27), Token(type = SEMICOLON, value = ;, position = 28)]
+2025-05-04 04:36:54,542 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:36:54,542 - compiler.parser - DEBUG - Found Column: products
+2025-05-04 04:36:54,542 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 7)
+2025-05-04 04:36:54,542 - compiler.statements.select_parser - ERROR - Expected 'FROM' in SELECT statement.
+2025-05-04 04:37:07,358 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = KEYWORD, value = FROM, position = 7), Token(type = IDENTIFIER, value = products, position = 12), Token(type = KEYWORD, value = WHERE, position = 21), Token(type = IDENTIFIER, value = id, position = 27), Token(type = EQUALS, value = =, position = 30), Token(type = NUMBER, value = 5, position = 32), Token(type = SEMICOLON, value = ;, position = 33)]
+2025-05-04 04:37:07,359 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:37:07,359 - compiler.parser - ERROR - Expected at least one column in SELECT statement.
+2025-05-04 04:37:21,772 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column2, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = products, position = 20), Token(type = KEYWORD, value = WHERE, position = 29), Token(type = IDENTIFIER, value = id, position = 35), Token(type = EQUALS, value = =, position = 38), Token(type = NUMBER, value = 5, position = 40), Token(type = SEMICOLON, value = ;, position = 41)]
+2025-05-04 04:37:21,773 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:37:21,773 - compiler.parser - DEBUG - Found Column: column2
+2025-05-04 04:37:21,773 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2, position = 7)
+2025-05-04 04:37:21,773 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-04 04:40:26,443 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column2, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = products, position = 20), Token(type = KEYWORD, value = WHERE, position = 29), Token(type = IDENTIFIER, value = id, position = 35), Token(type = EQUALS, value = =, position = 38), Token(type = NUMBER, value = 5, position = 40), Token(type = SEMICOLON, value = ;, position = 41)]
+2025-05-04 04:40:26,443 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:40:26,443 - compiler.parser - DEBUG - Found Column: column2
+2025-05-04 04:40:26,444 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2, position = 7)
+2025-05-04 04:40:26,444 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-04 04:40:38,947 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column2, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = products, position = 20), Token(type = SEMICOLON, value = ;, position = 28)]
+2025-05-04 04:40:38,948 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:40:38,948 - compiler.parser - DEBUG - Found Column: column2
+2025-05-04 04:40:38,948 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2, position = 7)
+2025-05-04 04:40:38,948 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-04 04:41:02,439 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column2, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = products, position = 20), Token(type = SEMICOLON, value = ;, position = 28)]
+2025-05-04 04:41:02,440 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:41:02,440 - compiler.parser - DEBUG - Found Column: column2
+2025-05-04 04:41:02,440 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2, position = 7)
+2025-05-04 04:41:02,440 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-04 04:41:02,440 - compiler.parser - DEBUG - Found Table: products
+2025-05-04 04:41:02,440 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 20)
+2025-05-04 04:41:02,440 - compiler.statements.select_parser - INFO - SELECT parsed: columns = ['column2'], tables = ['products']
+2025-05-04 04:41:08,951 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = column2, position = 7), Token(type = KEYWORD, value = FROM, position = 15), Token(type = IDENTIFIER, value = products, position = 20), Token(type = KEYWORD, value = WHERE, position = 29), Token(type = IDENTIFIER, value = id, position = 35), Token(type = EQUALS, value = =, position = 38), Token(type = NUMBER, value = 5, position = 40), Token(type = SEMICOLON, value = ;, position = 41)]
+2025-05-04 04:41:08,952 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-04 04:41:08,952 - compiler.parser - DEBUG - Found Column: column2
+2025-05-04 04:41:08,952 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = column2, position = 7)
+2025-05-04 04:41:08,952 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 15)
+2025-05-04 04:41:08,952 - compiler.parser - DEBUG - Found Table: products
+2025-05-04 04:41:08,952 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 20)
+2025-05-04 04:41:08,952 - compiler.statements.select_parser - INFO - SELECT parsed: columns = ['column2'], tables = ['products']
+2025-05-04 04:42:09,521 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = products, position = 7), Token(type = KEYWORD, value = SET, position = 16), Token(type = IDENTIFIER, value = price, position = 20), Token(type = EQUALS, value = =, position = 26), Token(type = NUMBER, value = 799.99, position = 28), Token(type = KEYWORD, value = WHERE, position = 35), Token(type = IDENTIFIER, value = id, position = 41), Token(type = EQUALS, value = =, position = 44), Token(type = NUMBER, value = 5, position = 46), Token(type = SEMICOLON, value = ;, position = 47)]
+2025-05-04 04:42:09,522 - compiler.statements.update_parser - INFO - Parsing UPDATE statement...
+2025-05-04 04:42:09,522 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = UPDATE, position = 0)
+2025-05-04 04:42:09,522 - compiler.parser - DEBUG - Found table name: products
+2025-05-04 04:42:09,522 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 7)
+2025-05-04 04:42:09,522 - compiler.statements.update_parser - DEBUG - UPDATE table: products
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SET, position = 16)
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = price, position = 20)
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 26)
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 799.99, position = 28)
+2025-05-04 04:42:09,523 - compiler.statements.update_parser - DEBUG - SET clause: [('price', '799.99')]
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = WHERE, position = 35)
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = id, position = 41)
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 44)
+2025-05-04 04:42:09,523 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 5, position = 46)
+2025-05-04 04:42:09,523 - compiler.statements.update_parser - DEBUG - WHERE condition: {'column': 'id', 'operator': '=', 'value': '5'}
+2025-05-04 04:42:09,523 - compiler.statements.update_parser - INFO - UPDATE parsed: table = products, SET = [('price', '799.99')], WHERE = {'column': 'id', 'operator': '=', 'value': '5'}

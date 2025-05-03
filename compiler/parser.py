@@ -1,5 +1,11 @@
 from utils.errors import ParsingError
 from utils.logger import get_logger
+from compiler.statements.create_parser import parse_create
+from compiler.statements.select_parser import parse_select
+from compiler.statements.insert_parser import parse_insert
+from compiler.statements.update_parser import parse_update
+from compiler.statements.drop_parser import parse_drop
+from compiler.statements.delete_parser import parse_delete
 
 logger = get_logger(__name__)
 
@@ -29,60 +35,30 @@ class Parser:
     def sql_statement(self):
         current = self.current_token()
 
-        if current and current.token_type == "KEYWORD" and current.value == "SELECT":
-            logger.info("Parsing SELECT statement")
-            return self.select_statement()
-        
-        elif current and current.token_type == "KEYWORD" and current.value == "INSERT":
-            logger.info("Parsing INSERT statement.")
-            return self.insert_statement()
-        
-        else:
-            logger.error(f"Invalid SQL statement found: {current}")
-            raise ParsingError(f"Invalid SQL statement found: {current}")
-        
-    def select_statement(self):
-        self.consume()  # Consuming SELECT keyword
-        col = self.columns()
-        current = self.current_token()
+        if current.token_type == "KEYWORD":
+            value = current.value.upper()
 
-        if current and current.token_type == "KEYWORD" and current.value == "FROM":
-            self.consume()  # Consuming FROM keyword
-            table = self.table_name()
-            logger.info(f"SELECT parsed: columns = {col}, table = {table}")
-            return {"type": "SELECT", "columns": col, "table": table}
-        
-        else:
-            logger.error("Expected 'FROM' in SELECT statement.")
-            raise ParsingError("Expected 'FROM' in SELECT statement.")
-        
-    def columns(self):
-        columns = []
-        current = self.current_token()
+            if value == "SELECT":
+                return parse_select(self)
+            elif value == "INSERT":
+                return parse_insert(self)
+            elif value == "CREATE":
+                return parse_create(self)
+            elif value == "DROP":
+                return parse_drop(self)
+            elif value == "DELETE":
+                return parse_delete(self)
+            elif value == "UPDATE":
+                return parse_update(self)
 
-        if current and current.token_type == "ASTERISK":
-            logger.debug("Found '*' , selecting all columns....")
-            self.consume()  # Consuming '*'
-            return ['*']
-        
-        while current and current.token_type == "IDENTIFIER":
-            logger.debug(f"Found Column: {current.value}")
-            columns.append(current.value)
-            self.consume()
-            current = self.current_token()
-            if current and current.token_type == "COMMA":
-                self.consume()  # Consume the comma
-                current = self.current_token()
-            else:
-                break
-
-        if not columns:
-            logger.error("Expected at least one column in SELECT statement.")
-            raise ParsingError("Expected at least one column in SELECT statement.")
-        
-        return columns
+        logger.error(f"Invalid SQL statement: {current}")
+        raise ParsingError(f"Invalid SQL statement: {current}")
+         
+    #                        ================= HELPER FUNCTIONS ==================
     
+
     def table_name(self):
+       
         current = self.current_token()
         if current and current.token_type == "IDENTIFIER":
             logger.debug(f"Found table name: {current.value}")
@@ -92,21 +68,6 @@ class Parser:
             logger.error("Expected a table name..")
             raise ParsingError("Expected a table name..")
         
-    def insert_statement(self):
-        self.consume()  # INSERT
-        self.consume()  # INTO
-
-        table = self.table_name()
-
-        current = self.current_token()
-        if current and current.token_type == "KEYWORD" and current.value == "VALUES":
-            self.consume()  # VALUES keyword
-            values = self.values()
-            logger.info(f"INSERT parsed: table={table}, values={values}")
-            return {"type": "INSERT", "table": table, "values": values}
-        else:
-            logger.error("Expected 'VALUES' in INSERT statement.")
-            raise ParsingError("Expected 'VALUES' in INSERT statement.")
 
     def values(self):
         values = []
@@ -128,3 +89,93 @@ class Parser:
             raise ParsingError("Expected at least one value in INSERT statement.")
 
         return values
+
+    def parse_set_clause(self):
+        set_clause = []
+        current = self.current_token()
+
+        while current and current.token_type == "IDENTIFIER":
+            column = current.value
+            self.consume()
+
+            if self.current_token().value != "=":
+                logger.error("Expected '=' after column name in SET clause.")
+                raise ParsingError("Expected '=' after column name in SET clause.")
+            self.consume()  # '='
+
+            value = self.current_token().value
+            self.consume()
+
+            set_clause.append((column, value))
+
+            if self.current_token().token_type == "COMMA":
+                self.consume()
+            else:
+                break
+
+        return set_clause
+    
+    def condition(self):
+        column = self.consume()  # Assuming consume returns a token
+        if column.token_type != "IDENTIFIER":
+            raise ParsingError(f"Expected column name, but found {column.value}")
+
+        operator = self.consume()  # '='
+        if operator.token_type != "EQUALS":
+            raise ParsingError(f"Expected '=' operator, but found {operator.value}")
+
+        value = self.consume()  # a number or string
+        if value.token_type not in ["NUMBER", "STRING"]:
+            raise ParsingError(f"Expected a value for condition, but found {value.value}")
+
+        return {"column": column.value, "operator": operator.value, "value": value.value}
+    
+    def parse_columns(self):
+        columns = []
+        current = self.current_token()
+
+        if current and current.token_type == "ASTERISK":
+            logger.debug("Found '*' , selecting all columns....")
+            self.consume()  # Consuming '*'
+            return ['*']
+            
+        while current and current.token_type == "IDENTIFIER":
+            logger.debug(f"Found Column: {current.value}")
+            columns.append(current.value)
+            self.consume()
+            current = self.current_token()
+            if current and current.token_type == "COMMA":
+                self.consume()  # Consume the comma
+                current = self.current_token()
+            else:
+                break
+
+        if not columns:
+            logger.error("Expected at least one column in SELECT statement.")
+            raise ParsingError("Expected at least one column in SELECT statement.")
+            
+        return columns
+    
+    def parse_tables(self): 
+        tables = []
+        current = self.current_token()
+
+        while current and current.token_type == "IDENTIFIER":
+            logger.debug(f"Found Table: {current.value}")
+            tables.append(current.value)
+            self.consume()
+            current = self.current_token()
+            if current and current.token_type == "COMMA":
+                self.consume()  # Consume the comma
+                current = self.current_token()
+            else:
+                break
+
+        if not tables:
+            logger.error("Expected at least one table in SELECT statement.")
+            raise ParsingError("Expected at least one table in SELECT statement.")
+            
+        return tables 
+
+    
+    

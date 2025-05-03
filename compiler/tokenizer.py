@@ -11,18 +11,28 @@ patterns = [
     (r"\bINSERT\b", "KEYWORD"),
     (r"\bINTO\b", "KEYWORD"),
     (r"\bVALUES\b", "KEYWORD"),
-    (r"[a-zA-Z_][a-zA-Z0-9_]*", "IDENTIFIER"),
+    (r"\bCREATE\b", "KEYWORD"),
+    (r"\bTABLE\b", "KEYWORD"),
+    (r"\bDELETE\b", "KEYWORD"),
+    (r"\bUPDATE\b", "KEYWORD"),
+    (r"\bSET\b", "KEYWORD"),
+    (r"\bDROP\b", "KEYWORD"),
+    (r"\bWHERE\b", "KEYWORD"),
+
+    (r"[a-zA-Z_][a-zA-Z0-9_]*", "IDENTIFIER"), 
     (r"\*", "ASTERISK"),
     (r",", "COMMA"),
     (r"\(", "LPAREN"),
     (r"\)", "RPAREN"),
     (r"'", "QUOTE"),
-    (r"[0-9]+", "NUMBER"),
-    (r"\s+", None), # Skip whitespace
+    (r"\d+\.\d+", "NUMBER"),  
+    (r"\d+", "NUMBER"),       # For integers like 5
+    (r"\s+", None),           # Skip whitespace
     (r";", "SEMICOLON"), 
     (r"\.", "DOT"),
     (r"=", "EQUALS"),
 ]
+
 
 class Tokenizer:
     def tokenize(self, sql):

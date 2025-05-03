@@ -1,16 +1,18 @@
 import logging
 
 def get_logger(name):
-
-    #creates or gets a logger named 'name'
     logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
 
-    #it prevents dupilicate log entries
     if not logger.handlers:
-        handler = logging.StreamHandler() #this outputs logs to the console
-        formatter = logging.Formatter('[%(levelname)s]  %(message)s') 
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        logger.setLevel(logging.DEBUG) #sets minimum log level
+        # ch = logging.StreamHandler()
+        fh = logging.FileHandler("sqlite_clone.log")
+
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        # ch.setFormatter(formatter)
+        fh.setFormatter(formatter)
+
+        # logger.addHandler(ch)
+        logger.addHandler(fh)
 
     return logger

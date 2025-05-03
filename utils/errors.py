@@ -2,7 +2,8 @@ class SQLiteCloneError(Exception):
     pass
 
 class TokenizationError(SQLiteCloneError):
-    pass
+    def __init__(self , message):
+        super().__init__(message)
 
 class ParsingError(SQLiteCloneError):
     pass

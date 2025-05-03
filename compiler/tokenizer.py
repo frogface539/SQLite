@@ -1,8 +1,9 @@
 import re
 from utils.errors import TokenizationError
-import logging
+from utils.logger import get_logger
+from compiler.tok_def import Token
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 patterns = [
     (r"\bSELECT\b", "KEYWORD"),
@@ -34,12 +35,19 @@ class Tokenizer:
                 if match:
                     match_text = match.group(0)
                     if token_type:
-                        tokens.append((token_type, match_text.upper()))
+                        value = match_text.upper() if token_type == "KEYWORD" else match_text 
+
+                        token = Token(type_ = token_type , value = value , position = i)
+                        tokens.append(token)
+
+                        logger.debug(f"Matched {token_type}: '{value}' at position {i}")
                     i = match.end() 
                     match_found = True
                     break
             if not match_found:
-                raise TokenizationError(f"Unknown token at: '{sql[i:]}'")
+                error_msg = f"Invalid token at {i}: {sql[i]}"
+                logger.error(error_msg)
+                raise TokenizationError(error_msg)
 
-        logger.info(f"Tokenized SQL: {tokens}")
+        logger.info(f"Tokenized successfully: {tokens}")
         return tokens

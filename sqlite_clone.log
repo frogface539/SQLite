@@ -1,0 +1,67 @@
+2025-05-03 15:19:00,799 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 15:19:00,799 - __main__ - ERROR - Error: Invalid token at 0: &
+2025-05-03 15:23:08,461 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 15:23:08,461 - __main__ - ERROR - Error: Invalid token at 0: &
+2025-05-03 15:23:20,655 - compiler.tokenizer - DEBUG - KEYWORD -> <re.Match object; span=(0, 6), match='select'> at position 0
+2025-05-03 15:23:20,656 - compiler.tokenizer - DEBUG - ASTERISK -> <re.Match object; span=(7, 8), match='*'> at position 7
+2025-05-03 15:23:20,656 - compiler.tokenizer - DEBUG - KEYWORD -> <re.Match object; span=(9, 13), match='from'> at position 9
+2025-05-03 15:23:20,656 - compiler.tokenizer - DEBUG - IDENTIFIER -> <re.Match object; span=(14, 20), match='pinchu'> at position 14
+2025-05-03 15:23:20,656 - compiler.tokenizer - ERROR - Invalid token at 20: @
+2025-05-03 15:23:20,657 - __main__ - ERROR - Error: Invalid token at 20: @
+2025-05-03 15:24:20,794 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 15:24:20,794 - __main__ - ERROR - Error: Invalid token at 0: &
+2025-05-03 15:24:33,655 - compiler.tokenizer - DEBUG - KEYWORD -> <re.Match object; span=(0, 6), match='select'> at position 0
+2025-05-03 15:24:33,656 - compiler.tokenizer - DEBUG - ASTERISK -> <re.Match object; span=(7, 8), match='*'> at position 7
+2025-05-03 15:24:33,657 - compiler.tokenizer - DEBUG - KEYWORD -> <re.Match object; span=(9, 13), match='from'> at position 9
+2025-05-03 15:24:33,657 - compiler.tokenizer - DEBUG - NUMBER -> <re.Match object; span=(14, 16), match='77'> at position 14
+2025-05-03 15:24:33,657 - compiler.tokenizer - DEBUG - IDENTIFIER -> <re.Match object; span=(16, 22), match='kibund'> at position 16
+2025-05-03 15:24:33,657 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD 
+ 
+        value = SELECT) 
+ 
+        position = 0, Token(type = ASTERISK 
+ 
+        value = *) 
+ 
+        position = 7, Token(type = KEYWORD 
+ 
+        value = FROM) 
+ 
+        position = 9, Token(type = NUMBER 
+ 
+        value = 77) 
+ 
+        position = 14, Token(type = IDENTIFIER 
+ 
+        value = kibund) 
+ 
+        position = 16]
+2025-05-03 15:25:24,335 - compiler.tokenizer - DEBUG - KEYWORD -> <re.Match object; span=(0, 6), match='select'> at position 0
+2025-05-03 15:25:24,336 - compiler.tokenizer - DEBUG - ASTERISK -> <re.Match object; span=(7, 8), match='*'> at position 7
+2025-05-03 15:25:24,336 - compiler.tokenizer - DEBUG - KEYWORD -> <re.Match object; span=(9, 13), match='from'> at position 9
+2025-05-03 15:25:24,336 - compiler.tokenizer - DEBUG - IDENTIFIER -> <re.Match object; span=(14, 20), match='pinchu'> at position 14
+2025-05-03 15:25:24,336 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD,
+        value = SELECT),
+        position = 0, Token(type = ASTERISK,
+        value = *),
+        position = 7, Token(type = KEYWORD,
+        value = FROM),
+        position = 9, Token(type = IDENTIFIER,
+        value = pinchu),
+        position = 14]
+2025-05-03 15:28:06,040 - compiler.tokenizer - DEBUG - Matched KEYWORD: 'SELECT' at position 0
+2025-05-03 15:28:06,041 - compiler.tokenizer - DEBUG - Matched ASTERISK: '*' at position 7
+2025-05-03 15:28:06,041 - compiler.tokenizer - DEBUG - Matched KEYWORD: 'FROM' at position 9
+2025-05-03 15:28:06,041 - compiler.tokenizer - DEBUG - Matched IDENTIFIER: 'pinchiu' at position 14
+2025-05-03 15:28:06,041 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = pinchiu), position = 14]
+2025-05-03 15:28:52,558 - compiler.tokenizer - ERROR - Invalid token at 0: &
+2025-05-03 15:28:52,558 - __main__ - ERROR - Error: Invalid token at 0: &
+2025-05-03 15:29:00,771 - compiler.tokenizer - DEBUG - Matched IDENTIFIER: 'create' at position 0
+2025-05-03 15:29:00,771 - compiler.tokenizer - DEBUG - Matched IDENTIFIER: 'table' at position 7
+2025-05-03 15:29:00,771 - compiler.tokenizer - DEBUG - Matched IDENTIFIER: 'me' at position 13
+2025-05-03 15:29:00,771 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = create), position = 0, Token(type = IDENTIFIER, value = table), position = 7, Token(type = IDENTIFIER, value = me), position = 13]
+2025-05-03 15:29:22,576 - compiler.tokenizer - DEBUG - Matched KEYWORD: 'SELECT' at position 0
+2025-05-03 15:29:22,577 - compiler.tokenizer - DEBUG - Matched ASTERISK: '*' at position 7
+2025-05-03 15:29:22,577 - compiler.tokenizer - DEBUG - Matched KEYWORD: 'FROM' at position 9
+2025-05-03 15:29:22,578 - compiler.tokenizer - DEBUG - Matched IDENTIFIER: 'table' at position 14
+2025-05-03 15:29:22,578 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT), position = 0, Token(type = ASTERISK, value = *), position = 7, Token(type = KEYWORD, value = FROM), position = 9, Token(type = IDENTIFIER, value = table), position = 14]

@@ -40,7 +40,6 @@ class Tokenizer:
                         token = Token(type_ = token_type , value = value , position = i)
                         tokens.append(token)
 
-                        logger.debug(f"Matched {token_type}: '{value}' at position {i}")
                     i = match.end() 
                     match_found = True
                     break

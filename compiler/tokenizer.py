@@ -18,25 +18,30 @@ patterns = [
     (r"\bSET\b", "KEYWORD"),
     (r"\bDROP\b", "KEYWORD"),
     (r"\bWHERE\b", "KEYWORD"),
+    
+    (r"\bINT\b", "KEYWORD"),  # Added INT type as a keyword
+    (r"\bTEXT\b", "KEYWORD"), # Added TEXT type as a keyword
+    (r"\bREAL\b", "KEYWORD"), # Added REAL type as a keyword
+    (r"\bBOOLEAN\b", "KEYWORD"), # Added BOOLEAN type as a keyword
 
-    (r"[a-zA-Z_][a-zA-Z0-9_]*", "IDENTIFIER"), 
+    (r"[a-zA-Z_][a-zA-Z0-9_]*", "IDENTIFIER"),  # Identifiers like column names or table names
     (r"\*", "ASTERISK"),
     (r",", "COMMA"),
     (r"\(", "LPAREN"),
     (r"\)", "RPAREN"),
     (r"'", "QUOTE"),
-    (r"\d+\.\d+", "NUMBER"),  
-    (r"\d+", "NUMBER"),       # For integers like 5
+    (r"\d+\.\d+", "NUMBER"),  # Floating point numbers (e.g., 10.5)
+    (r"\d+", "NUMBER"),       # Integers like 5, 100, etc.
     (r"\s+", None),           # Skip whitespace
     (r";", "SEMICOLON"), 
     (r"\.", "DOT"),
     (r"=", "EQUALS"),
+    (r'"[^"]*"|\'[^\']*\'', "STRING"),  # String literals
 ]
-
 
 class Tokenizer:
     def tokenize(self, sql):
-        sql = sql.strip() # remove trailing whitespaces
+        sql = sql.strip()  # Remove trailing whitespaces
         tokens = []
         i = 0
 
@@ -47,15 +52,23 @@ class Tokenizer:
                 match = regex.match(sql, i)  # Match from full string at index i
                 if match:
                     match_text = match.group(0)
+                    
                     if token_type:
-                        value = match_text.upper() if token_type == "KEYWORD" else match_text 
+                        if token_type == "KEYWORD":
+                            value = match_text.upper()  # Ensure keywords are uppercase
+                        elif token_type == "STRING":
+                            value = match_text[1:-1]  # Remove surrounding quotes for string literals
+                        else:
+                            value = match_text
 
-                        token = Token(token_type = token_type , value = value , position = i)
+                        # Create the token and add to the token list
+                        token = Token(token_type=token_type, value=value, position=i)
                         tokens.append(token)
 
-                    i = match.end() 
+                    i = match.end()  # Move the index to the end of the matched string
                     match_found = True
                     break
+
             if not match_found:
                 error_msg = f"Invalid token at {i}: {sql[i]}"
                 logger.error(error_msg)

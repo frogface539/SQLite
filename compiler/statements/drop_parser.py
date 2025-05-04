@@ -2,17 +2,24 @@ from utils.errors import ParsingError
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
+
 def parse_drop(self):
     logger.info("Parsing DROP statement....")
-    self.consume() #consuming drop
+    self.consume()
 
-    if self.current_token().value != "TABLE":
-        logger.error("Expected 'TABLE' after DROP")
-        raise ParsingError("Expected 'TABLE' after DROP")
-    
-    self.consume() # consuming table
-    table_name = self.table_name()
-    logger.debug(f"DROP TABLE: {table_name}")
+    current_token = self.current_token()
+    if current_token.token_type != "IDENTIFIER":
+        logger.error("Expected an entity after DROP (e.g., TABLE, VIEW, etc.)")
+        raise ParsingError("Expected an entity after DROP (e.g., TABLE, VIEW, etc.)")
 
-    logger.info(f"Dropped Table: {table_name}")
-    return {"type" : "DROP" , "table_name" : table_name}
+    entity_name = current_token.value
+    logger.debug(f"Dropped Entity: {entity_name}")
+
+    self.consume()
+
+    if self.current_token().value != ";":
+        logger.error("Expected ';' at the end of DROP statement")
+        raise ParsingError("Expected ';' at the end of DROP statement")
+
+    logger.info(f"DROP parsed: entity = {entity_name}")
+    return {"type": "DROP", "table_name": entity_name}

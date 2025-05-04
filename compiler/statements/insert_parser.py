@@ -3,22 +3,47 @@ from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-def parse_insert(self):
-    logger.info("Parsing INSERT statement...")
+def parse_insert(parser):
+    logger.debug("Parsing INSERT statement...")
+    parser.consume()  
 
-    self.consume()  # INSERT
-    self.consume()  # INTO
+    parser.expect("KEYWORD", "INTO")  
+    table_name = parser.table_name() 
 
-    table_name = self.table_name()
-    logger.debug(f"INSERT INTO: {table_name}")
+    parser.expect("LPAREN") 
+    columns = parser.parse_columns()  
 
-    if self.current_token().value != "VALUES":
-        logger.error("Expected 'VALUES' after table name.")
-        raise ParsingError("Expected 'VALUES' after table name.")
+    parser.expect("RPAREN")  
+
+    parser.expect("KEYWORD", "VALUES") 
+    parser.expect("LPAREN")  
+
+    # Parse the values
+    values = []
+    current = parser.current_token()
+
+    while current and current.token_type != "RPAREN":
+        if current.token_type == "NUMBER" or current.token_type == "STRING":
+            values.append(current.value)
+            parser.consume() 
+
+        if current.token_type == "COMMA":
+            parser.consume()
+
+        current = parser.current_token()
+
     
-    self.consume()  # VALUES
-    values = self.values()
-    logger.debug(f"INSERT values: {values}")
+    if current and current.token_type == "RPAREN":
+        parser.consume()  
 
-    logger.info(f"INSERT parsed: table = {table_name}, values = {values}")
-    return {"type": "INSERT", "table": table_name, "values": values}
+    parser.expect("SEMICOLON")  
+
+   
+    result = {
+        "type": "INSERT",
+        "table_name": table_name,
+        "columns": columns,
+        "values": values
+    }
+
+    return result

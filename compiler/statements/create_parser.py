@@ -3,65 +3,57 @@ from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-def parse_create(self):
-    logger.info("Parsing Create Table.... \n")
-    self.consume()
-
-    if self.current_token().value != "TABLE":
-        logger.error("Expected 'TABLE' after CREATE.....\n")
-        raise ParsingError("Expected 'TABLE' after CREATE.....")
+def parse_create(parser):
+    parser.expect("KEYWORD", "CREATE")
+    parser.expect("KEYWORD", "TABLE")
+    table_name = parser.table_name()
+    parser.expect("LPAREN")
     
-    self.consume()
-
-    table_name = self.current_token().value  # Capture the table name
-    logger.debug(f"Table Name Found: {table_name}")
-    self.consume()
-
-    # Expect opening parenthesis '('
-    if self.current_token().value != "(":
-        logger.error("Expected '(' after table name...\n")
-        raise ParsingError("Expected '(' after table name...")
-    
-    self.consume()
-
     columns = []
-    logger.debug("Parsing Columns.....\n")
-
     while True:
-        col_token = self.current_token()
-
-        if col_token.token_type != "IDENTIFIER":
-            logger.error(f"Expected column name, but got {col_token.token_type} - {col_token.value}")
-            raise ParsingError("Expected column name...")
+        col_name = parser.expect("IDENTIFIER").value
+        col_type = parser.expect("KEYWORD").value  
         
-        col_name = col_token.value
-        logger.debug(f"Column Found: {col_name}")
-        self.consume()
-
-        # Check for the column type
-        type_token = self.current_token()
-        if type_token.token_type != "KEYWORD":
-            logger.error(f"Expected column type (e.g., INT, TEXT), but got {type_token.token_type} - {type_token.value}")
-            raise ParsingError("Expected Column Type...")
+        constraints = []
+        while True:
+            token = parser.current_token()
+            if not token or token.token_type in ("COMMA", "RPAREN"):
+                break
+                
+            if token.token_type == "IDENTIFIER":
+                constraint = token.value.upper()
+                if constraint in ["PRIMARY", "NOT"]:
+                    next_token = parser.tokens[parser.index + 1] if parser.index + 1 < len(parser.tokens) else None
+                    if constraint == "PRIMARY" and next_token and next_token.value.upper() == "KEY":
+                        parser.consume()
+                        parser.consume()
+                        constraints.append("PRIMARY KEY")
+                    elif constraint == "NOT" and next_token and next_token.value.upper() == "NULL":
+                        parser.consume()  
+                        parser.consume()  
+                        constraints.append("NOT NULL")
+                else:
+                    parser.consume()
+                    constraints.append(constraint)
+            else:
+                parser.consume()
         
-        col_type = type_token.value
-        logger.debug(f"Column Type: {col_type}")
-        self.consume()
-
-        columns.append((col_name, col_type))
-
-        token = self.current_token()
-        if token.token_type == "COMMA":
-            logger.debug("Found ',' moving to next column....")
-            self.consume()
-
-        elif token.token_type == "RPAREN":
-            logger.debug("Found ')' moving to next column....")
-            self.consume()
+        columns.append((col_name, col_type, constraints))
+        
+        token = parser.current_token()
+        if not token or token.token_type == "RPAREN":
             break
-        else:
-            logger.error("Expected ',' or ')' in column list")
-            raise ParsingError("Expected ',' or ')' in column list")
+        parser.expect("COMMA")
     
-    logger.info(f"CREATE TABLE parsed successfully with columns: {columns}")
-    return {"type": "CREATE", "table_name": table_name, "columns": columns}
+    parser.expect("RPAREN")
+    
+    parser.schema_registry[table_name] = [col['name'] for col in columns]
+    logger.info(f"Updated schema registry with table {table_name}")
+    
+    return {
+        "type": "CREATE",
+        "table_name": table_name,
+        "columns": columns
+    }
+
+    

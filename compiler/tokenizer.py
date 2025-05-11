@@ -23,7 +23,8 @@ patterns = [
     (r"\bTEXT\b", "KEYWORD"), # Added TEXT type as a keyword
     (r"\bREAL\b", "KEYWORD"), # Added REAL type as a keyword
     (r"\bBOOLEAN\b", "KEYWORD"), # Added BOOLEAN type as a keyword
-
+    (r"'[^']*'", "STRING"),  # Single-quoted strings
+    (r'"[^"]*"', "STRING"),  # Double-quoted strings
     (r"[a-zA-Z_][a-zA-Z0-9_]*", "IDENTIFIER"),  # Identifiers like column names or table names
     (r"\*", "ASTERISK"),
     (r",", "COMMA"),
@@ -36,7 +37,13 @@ patterns = [
     (r";", "SEMICOLON"), 
     (r"\.", "DOT"),
     (r"=", "EQUALS"),
-    (r'"[^"]*"|\'[^\']*\'', "STRING"),  # String literals
+    (r'"[^"]*"|\'[^\']*\'', "STRING"), # String literals
+    (r"!=", "NOTEQUALS"),
+    (r"<=", "LESSEQUAL"),
+    (r">=", "GREATEREQUAL"),
+    (r"<", "LESSTHAN"),
+    (r">", "GREATERTHAN"),
+    (r"=", "EQUALS"),
 ]
 
 class Tokenizer:
@@ -49,23 +56,22 @@ class Tokenizer:
             match_found = False
             for pattern, token_type in patterns:
                 regex = re.compile(pattern, re.IGNORECASE)
-                match = regex.match(sql, i)  # Match from full string at index i
+                match = regex.match(sql, i) 
                 if match:
                     match_text = match.group(0)
                     
                     if token_type:
                         if token_type == "KEYWORD":
-                            value = match_text.upper()  # Ensure keywords are uppercase
+                            value = match_text.upper() 
                         elif token_type == "STRING":
-                            value = match_text[1:-1]  # Remove surrounding quotes for string literals
+                            value = match_text[1:-1]
                         else:
                             value = match_text
 
-                        # Create the token and add to the token list
                         token = Token(token_type=token_type, value=value, position=i)
                         tokens.append(token)
 
-                    i = match.end()  # Move the index to the end of the matched string
+                    i = match.end() 
                     match_found = True
                     break
 

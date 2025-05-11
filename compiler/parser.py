@@ -12,7 +12,8 @@ logger = get_logger(__name__)
 class Parser:
     def __init__(self, tokens):
         self.tokens = tokens
-        self.index = 0  # Setting initial position
+        self.index = 0
+        logger.debug(f"Initialized parser with {len(tokens)} tokens")
 
     def current_token(self):
         """Returns the current token."""
@@ -120,40 +121,145 @@ class Parser:
 
 
     def condition(self):
-        logger.debug("Parsing WHERE condition....")
-        column = self.current_token().value
-        logger.debug(f"Column Found: {column}")
-        self.consume()
-
-        if self.current_token().token_type != "EQUALS":
-            logger.error("Expected '=' after column name in WHERE clause.")
-            raise ParsingError("Expected '=' after column name in WHERE clause.")
+        """Parse WHERE clause with flexible operator handling"""
+        logger.debug("Parsing WHERE condition")
         
-        self.consume()  # Consume '=' token
+        try:
+            # Get column name
+            if not self.current_token() or self.current_token().token_type != "IDENTIFIER":
+                raise ParsingError("Expected column name after WHERE")
+            column = self.current_token().value
+            self.consume()
+            logger.debug(f"Found WHERE column: {column}")
 
-        value = self.current_token().value
-        logger.debug(f"Value Found: {value}")
-        self.consume()
+            # Handle operators (including single = for equality)
+            valid_operators = {
+                "EQUALS": "=",         # Standard SQL equality
+                "NOTEQUALS": "!=",
+                "LESSTHAN": "<",
+                "GREATERTHAN": ">",
+                "LESSEQUAL": "<=",
+                "GREATEREQUAL": ">=",
+                "IDENTIFIER": None     # Handle column comparisons
+            }
 
-        return {"column": column, "value": value}
+            if not self.current_token():
+                raise ParsingError("Expected operator after column name")
+
+            # Special case: allow column-to-column comparisons
+            if self.current_token().token_type == "IDENTIFIER":
+                operator = None  # Mark as column comparison
+                right_column = self.current_token().value
+                self.consume()
+                return {
+                    "type": "column_compare",
+                    "left_column": column,
+                    "right_column": right_column
+                }
+
+            # Standard operator handling
+            if self.current_token().token_type not in valid_operators:
+                raise ParsingError(
+                    f"Expected comparison operator (=, !=, <, >, <=, >=), got {self.current_token().token_type}"
+                )
+
+            operator = valid_operators[self.current_token().token_type]
+            self.consume()
+            logger.debug(f"Found operator: {operator}")
+
+            # Get comparison value
+            if not self.current_token():
+                raise ParsingError("Expected value after operator")
+
+            value_token = self.current_token()
+            valid_types = ("NUMBER", "STRING", "IDENTIFIER", "KEYWORD")
+            
+            if value_token.token_type not in valid_types:
+                raise ParsingError(f"Invalid value type {value_token.token_type}")
+
+            value = value_token.value
+            self.consume()
+
+            return {
+                "type": "value_compare",
+                "column": column,
+                "operator": operator,
+                "value": value
+            }
+
+        except ParsingError as e:
+            logger.error(f"WHERE clause parsing failed at token {self.index}: {str(e)}")
+            raise ParsingError(f"Invalid WHERE clause: {str(e)}") from e
 
     def parse_set_clause(self):
+        """Parse SET clause with robust string handling"""
         updates = {}
-        while self.current_token().token_type == "IDENTIFIER":
-            column = self.current_token().value
-            self.advance()
+        logger.debug(f"Starting SET clause parsing at index {self.index}")
 
-            self.expect("EQUALS")
-            self.advance()
+        while True:
+            try:
+                # Get column name
+                if not self.current_token() or self.current_token().token_type != "IDENTIFIER":
+                    raise ParsingError("Expected column name in SET clause")
+                column = self.current_token().value
+                self.consume()
+                logger.debug(f"Processing column assignment: {column}")
 
-            value = self.current_token().value
-            updates[column] = value
+                # Verify equals sign
+                if not self.current_token() or self.current_token().token_type != "EQUALS":
+                    raise ParsingError("Expected '=' after column name")
+                self.consume()
 
-            self.advance()  # Move past the value token
-            if self.current_token().value != ",":
-                break
-            self.advance()  # Move past the comma for the next update, if any
-        
+                # Parse the value
+                if not self.current_token():
+                    raise ParsingError("Expected value after '='")
+
+                value_token = self.current_token()
+                logger.debug(f"Processing value token: {value_token}")
+
+                # Handle different value types
+                if value_token.token_type == "STRING":
+                    # For already tokenized strings (quotes included in token)
+                    value = value_token.value[1:-1]  # Remove quotes
+                    self.consume()
+                elif value_token.token_type == "QUOTE":
+                    # For separate quote tokens (legacy handling)
+                    self.consume()  # Consume opening quote
+                    if not self.current_token() or self.current_token().token_type != "STRING":
+                        raise ParsingError("Expected string content between quotes")
+                    value = self.current_token().value
+                    self.consume()
+                    if not self.current_token() or self.current_token().token_type != "QUOTE":
+                        raise ParsingError("Expected closing quote")
+                    self.consume()
+                elif value_token.token_type in ("NUMBER", "IDENTIFIER"):
+                    value = value_token.value
+                    self.consume()
+                elif (value_token.token_type == "KEYWORD" and 
+                    value_token.value.upper() in ("TRUE", "FALSE", "NULL")):
+                    value = value_token.value
+                    self.consume()
+                else:
+                    raise ParsingError(f"Invalid value type {value_token.token_type}")
+
+                updates[column] = value
+                logger.debug(f"Assigned {column} = {value}")
+
+                # Check for more assignments
+                if not self.current_token() or self.current_token().token_type != "COMMA":
+                    break
+
+                self.consume()  # consume comma
+                logger.debug("Found comma, expecting next assignment")
+
+            except ParsingError as e:
+                logger.error(f"SET clause parsing failed at index {self.index}: {str(e)}")
+                raise
+
+        if not updates:
+            raise ParsingError("SET clause must contain at least one assignment")
+
+        logger.info(f"Successfully parsed SET clause with {len(updates)} assignments")
         return updates
 
     def parse_columns(self):
@@ -162,7 +268,6 @@ class Parser:
             columns.append(self.current_token().value)
             self.advance()
 
-            # If there are more columns, expect a comma and a valid column name
             if self.current_token() and self.current_token().value == ",":
                 self.advance()  # consume comma
                 if not (self.current_token() and self.current_token().token_type == 'IDENTIFIER'):
@@ -181,7 +286,7 @@ class Parser:
             
         
             if current and current.token_type == "COMMA":
-                self.consume()  # consume the comma
+                self.consume() 
                 current = self.current_token()
 
         if not tables:

@@ -5,16 +5,18 @@ logger = get_logger(__name__)
 
 def parse_select(parser):
     logger.debug("Parsing SELECT statement...")
-    parser.consume()  # consume SELECT
+    parser.expect("KEYWORD", "SELECT")
+    
+    columns = []
+    if parser.current_token().token_type == "ASTERISK":
+        columns.append("*")
+        parser.consume()
+    else:
+        columns = parser.parse_columns()
 
-    columns = parser.parse_columns()
-
-    current = parser.current_token()
-    if not current or current.value.upper() != "FROM":
-        raise ParsingError("Expected 'FROM' keyword in SELECT statement.")
-    parser.consume()  # consume FROM
-
+    parser.expect("KEYWORD", "FROM")
     tables = parser.parse_tables()
+    
     if len(tables) != 1:
         raise ParsingError("Only single table SELECT supported at the moment.")
 
@@ -24,12 +26,8 @@ def parse_select(parser):
         "table_name": tables[0],
     }
 
-
-    current = parser.current_token()
-    if current and current.value.upper() == "WHERE":
-        parser.consume()  # consume WHERE
+    if parser.current_token() and parser.current_token().value.upper() == "WHERE":
+        parser.consume()
         result["where"] = parser.condition()
 
     return result
-
-        

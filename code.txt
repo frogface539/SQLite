@@ -1,9 +1,0 @@
-
-        
-
-        # # Code Generation
-        # command = CodeGeneration().gen(parsed_result)
-        # plan = PlanGenerator().generate_plan(command)
-
-        # console.print("\n[bold green]Execution Plan:[/bold green]")
-        # console.print(plan)

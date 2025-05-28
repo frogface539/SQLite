@@ -3119,3 +3119,279 @@ x
 2025-05-12 01:40:08,261 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand
 2025-05-12 01:40:08,261 - compiler.code_generator - DEBUG - Generating SELECT plan for me
 2025-05-12 01:40:08,261 - compiler.code_generator - DEBUG - Generated SELECT plan: [('OPEN_TABLE', 'me'), 'SCAN_START', ('EMIT_ROW', ['*']), 'SCAN_END']
+2025-05-13 12:50:18,243 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = col1, position = 7), Token(type = COMMA, value = ,, position = 11), Token(type = IDENTIFIER, value = col2, position = 12), Token(type = KEYWORD, value = FROM, position = 17), Token(type = IDENTIFIER, value = products, position = 22)]
+2025-05-13 12:50:18,246 - compiler.parser - DEBUG - Initialized parser with 6 tokens
+2025-05-13 12:50:18,248 - compiler.statements.select_parser - DEBUG - Parsing SELECT statement...
+2025-05-13 12:50:18,248 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-13 12:50:18,248 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 17)
+2025-05-13 12:50:18,248 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = products, position = 22)
+2025-05-13 12:50:18,250 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand
+2025-05-13 12:50:18,250 - compiler.code_generator - DEBUG - Generating SELECT plan for products
+2025-05-13 12:50:18,250 - compiler.code_generator - DEBUG - Generated SELECT plan: [('OPEN_TABLE', 'products'), 'SCAN_START', ('EMIT_ROW', ['col1', 'col2']), 'SCAN_END']
+2025-05-13 12:50:38,745 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = NUMBER, value = 78, position = 7), Token(type = KEYWORD, value = FROM, position = 10)]
+2025-05-13 12:50:38,748 - compiler.parser - DEBUG - Initialized parser with 3 tokens
+2025-05-13 12:50:38,748 - compiler.statements.select_parser - DEBUG - Parsing SELECT statement...
+2025-05-13 12:50:38,748 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-15 16:05:52,935 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = child, position = 14)]
+2025-05-15 16:05:52,938 - compiler.parser - DEBUG - Initialized parser with 4 tokens
+2025-05-15 16:05:52,938 - compiler.statements.select_parser - DEBUG - Parsing SELECT statement...
+2025-05-15 16:05:52,938 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-15 16:05:52,938 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-05-15 16:05:52,938 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-05-15 16:05:52,938 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = child, position = 14)
+2025-05-15 16:05:52,939 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand
+2025-05-15 16:05:52,939 - compiler.code_generator - DEBUG - Generating SELECT plan for child
+2025-05-15 16:05:52,941 - compiler.code_generator - DEBUG - Generated SELECT plan: [('OPEN_TABLE', 'child'), 'SCAN_START', ('EMIT_ROW', ['*']), 'SCAN_END']
+2025-05-15 16:06:37,461 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = yo, position = 13), Token(type = LPAREN, value = (, position = 15), Token(type = KEYWORD, value = INT, position = 16), Token(type = IDENTIFIER, value = age, position = 20), Token(type = RPAREN, value = ), position = 23), Token(type = SEMICOLON, value = ;, position = 24)]
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Initialized parser with 8 tokens
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = yo, position = 13)
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Table Name Found: yo
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = yo, position = 13)
+2025-05-15 16:06:37,466 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 15)
+2025-05-15 16:07:32,653 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = IDENTIFIER, value = varchar, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = IDENTIFIER, value = varchar, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = IDENTIFIER, value = varchar, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = IDENTIFIER, value = varchar, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 124), Token(type = SEMICOLON, value = ;, position = 125)]
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:07:32,662 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:08:04,803 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = KEYWORD, value = INT, position = 46), Token(type = LPAREN, value = (, position = 49), Token(type = NUMBER, value = 255, position = 50), Token(type = RPAREN, value = ), position = 53), Token(type = COMMA, value = ,, position = 54), Token(type = IDENTIFIER, value = FirstName, position = 56), Token(type = KEYWORD, value = INT, position = 66), Token(type = LPAREN, value = (, position = 69), Token(type = NUMBER, value = 255, position = 70), Token(type = RPAREN, value = ), position = 73), Token(type = COMMA, value = ,, position = 74), Token(type = IDENTIFIER, value = Address, position = 76), Token(type = KEYWORD, value = INT, position = 84), Token(type = LPAREN, value = (, position = 87), Token(type = NUMBER, value = 255, position = 88), Token(type = RPAREN, value = ), position = 91), Token(type = COMMA, value = ,, position = 92), Token(type = IDENTIFIER, value = City, position = 94), Token(type = KEYWORD, value = INT, position = 99), Token(type = LPAREN, value = (, position = 102), Token(type = NUMBER, value = 255, position = 103), Token(type = RPAREN, value = ), position = 106), Token(type = RPAREN, value = ), position = 108), Token(type = SEMICOLON, value = ;, position = 109)]
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 46)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 49)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 50)
+2025-05-15 16:08:04,814 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 53)
+2025-05-15 16:10:10,910 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = IDENTIFIER, value = varchar, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = IDENTIFIER, value = varchar, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = IDENTIFIER, value = varchar, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = IDENTIFIER, value = varchar, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 123), Token(type = SEMICOLON, value = ;, position = 124)]
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:10:10,919 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:18:07,419 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21)]
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Initialized parser with 4 tokens
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:18:07,421 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:18:07,423 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = PersonID, position = 0), Token(type = KEYWORD, value = INT, position = 9), Token(type = COMMA, value = ,, position = 12)]
+2025-05-15 16:18:07,425 - compiler.parser - DEBUG - Initialized parser with 3 tokens
+2025-05-15 16:18:07,425 - compiler.parser - ERROR - Invalid SQL statement: Token(type = IDENTIFIER, value = PersonID, position = 0)
+2025-05-15 16:18:07,426 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = LastName, position = 0), Token(type = IDENTIFIER, value = varchar, position = 9), Token(type = LPAREN, value = (, position = 16), Token(type = NUMBER, value = 255, position = 17), Token(type = RPAREN, value = ), position = 20), Token(type = COMMA, value = ,, position = 21)]
+2025-05-15 16:18:07,430 - compiler.parser - DEBUG - Initialized parser with 6 tokens
+2025-05-15 16:18:07,430 - compiler.parser - ERROR - Invalid SQL statement: Token(type = IDENTIFIER, value = LastName, position = 0)
+2025-05-15 16:18:07,431 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = FirstName, position = 0), Token(type = IDENTIFIER, value = varchar, position = 10), Token(type = LPAREN, value = (, position = 17), Token(type = NUMBER, value = 255, position = 18), Token(type = RPAREN, value = ), position = 21), Token(type = COMMA, value = ,, position = 22)]
+2025-05-15 16:18:07,433 - compiler.parser - DEBUG - Initialized parser with 6 tokens
+2025-05-15 16:18:07,433 - compiler.parser - ERROR - Invalid SQL statement: Token(type = IDENTIFIER, value = FirstName, position = 0)
+2025-05-15 16:18:07,434 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = Address, position = 0), Token(type = IDENTIFIER, value = varchar, position = 8), Token(type = LPAREN, value = (, position = 15), Token(type = NUMBER, value = 255, position = 16), Token(type = RPAREN, value = ), position = 19), Token(type = COMMA, value = ,, position = 20)]
+2025-05-15 16:18:07,436 - compiler.parser - DEBUG - Initialized parser with 6 tokens
+2025-05-15 16:18:07,436 - compiler.parser - ERROR - Invalid SQL statement: Token(type = IDENTIFIER, value = Address, position = 0)
+2025-05-15 16:18:07,437 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = IDENTIFIER, value = City, position = 0), Token(type = IDENTIFIER, value = varchar, position = 5), Token(type = LPAREN, value = (, position = 12), Token(type = NUMBER, value = 255, position = 13), Token(type = RPAREN, value = ), position = 16)]
+2025-05-15 16:18:07,439 - compiler.parser - DEBUG - Initialized parser with 5 tokens
+2025-05-15 16:18:07,439 - compiler.parser - ERROR - Invalid SQL statement: Token(type = IDENTIFIER, value = City, position = 0)
+2025-05-15 16:18:07,440 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = RPAREN, value = ), position = 0), Token(type = SEMICOLON, value = ;, position = 1)]
+2025-05-15 16:18:07,441 - compiler.parser - DEBUG - Initialized parser with 2 tokens
+2025-05-15 16:18:07,441 - compiler.parser - ERROR - Invalid SQL statement: Token(type = RPAREN, value = ), position = 0)
+2025-05-15 16:18:14,609 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = IDENTIFIER, value = varchar, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = IDENTIFIER, value = varchar, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = IDENTIFIER, value = varchar, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = IDENTIFIER, value = varchar, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 124), Token(type = SEMICOLON, value = ;, position = 125)]
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:18:14,618 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:24:19,958 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = IDENTIFIER, value = varchar, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = IDENTIFIER, value = varchar, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = IDENTIFIER, value = varchar, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = IDENTIFIER, value = varchar, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 124), Token(type = SEMICOLON, value = ;, position = 125)]
+2025-05-15 16:24:19,966 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:24:19,967 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:24:58,611 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = IDENTIFIER, value = varchar, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = IDENTIFIER, value = varchar, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = IDENTIFIER, value = varchar, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = IDENTIFIER, value = varchar, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 123), Token(type = SEMICOLON, value = ;, position = 124)]
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:24:58,621 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:24:58,622 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:27:27,669 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = IDENTIFIER, value = VARCHAR, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = IDENTIFIER, value = VARCHAR, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = IDENTIFIER, value = VARCHAR, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = IDENTIFIER, value = VARCHAR, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 124), Token(type = SEMICOLON, value = ;, position = 125)]
+2025-05-15 16:27:27,680 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:27:27,680 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:27:27,680 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:27:27,681 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:31:37,076 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = KEYWORD, value = VARCHAR, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = KEYWORD, value = VARCHAR, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = KEYWORD, value = VARCHAR, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = KEYWORD, value = VARCHAR, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 123), Token(type = SEMICOLON, value = ;, position = 124)]
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:31:37,087 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 46)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 53)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 54)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 57)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 58)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = FirstName, position = 60)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 70)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 77)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 78)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 81)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 82)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Address, position = 84)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 92)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 99)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 100)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 103)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 104)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = City, position = 106)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 111)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 118)
+2025-05-15 16:31:37,088 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 119)
+2025-05-15 16:31:37,089 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 122)
+2025-05-15 16:31:37,089 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 123)
+2025-05-15 16:40:34,324 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = Persons, position = 13), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = PersonID, position = 23), Token(type = KEYWORD, value = INT, position = 32), Token(type = COMMA, value = ,, position = 35), Token(type = IDENTIFIER, value = LastName, position = 37), Token(type = KEYWORD, value = VARCHAR, position = 46), Token(type = LPAREN, value = (, position = 53), Token(type = NUMBER, value = 255, position = 54), Token(type = RPAREN, value = ), position = 57), Token(type = COMMA, value = ,, position = 58), Token(type = IDENTIFIER, value = FirstName, position = 60), Token(type = KEYWORD, value = VARCHAR, position = 70), Token(type = LPAREN, value = (, position = 77), Token(type = NUMBER, value = 255, position = 78), Token(type = RPAREN, value = ), position = 81), Token(type = COMMA, value = ,, position = 82), Token(type = IDENTIFIER, value = Address, position = 84), Token(type = KEYWORD, value = VARCHAR, position = 92), Token(type = LPAREN, value = (, position = 99), Token(type = NUMBER, value = 255, position = 100), Token(type = RPAREN, value = ), position = 103), Token(type = COMMA, value = ,, position = 104), Token(type = IDENTIFIER, value = City, position = 106), Token(type = KEYWORD, value = VARCHAR, position = 111), Token(type = LPAREN, value = (, position = 118), Token(type = NUMBER, value = 255, position = 119), Token(type = RPAREN, value = ), position = 122), Token(type = RPAREN, value = ), position = 123), Token(type = SEMICOLON, value = ;, position = 124)]
+2025-05-15 16:40:34,334 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:40:34,334 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:40:34,334 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:40:34,334 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:40:34,334 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:40:34,334 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 13)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PersonID, position = 23)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 32)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 35)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = LastName, position = 37)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 46)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 53)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 54)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 57)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 58)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = FirstName, position = 60)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 70)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 77)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 78)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 81)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 82)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Address, position = 84)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 92)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 99)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 100)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 103)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 104)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = City, position = 106)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 111)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 118)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 255, position = 119)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 122)
+2025-05-15 16:40:34,335 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 123)
+2025-05-15 16:40:34,335 - compiler.statements.create_parser - INFO - Updated schema registry with table Persons
+2025-05-15 16:40:34,343 - compiler.code_generator - DEBUG - Creating Table: Persons with columns: [{'name': 'PersonID', 'type': 'INT', 'size': None, 'constraints': []}, {'name': 'LastName', 'type': 'VARCHAR', 'size': 255, 'constraints': []}, {'name': 'FirstName', 'type': 'VARCHAR', 'size': 255, 'constraints': []}, {'name': 'Address', 'type': 'VARCHAR', 'size': 255, 'constraints': []}, {'name': 'City', 'type': 'VARCHAR', 'size': 255, 'constraints': []}]
+2025-05-15 16:40:34,343 - compiler.code_generator - INFO - Table Persons creation with columns finished.
+2025-05-15 16:40:34,343 - compiler.code_generator - INFO - Generating execution plan for CreateTableCommand
+2025-05-15 16:40:34,343 - compiler.code_generator - DEBUG - Generating CREATE TABLE plan for Persons
+2025-05-15 16:40:34,343 - compiler.code_generator - DEBUG - Generated CREATE plan: [('CREATE_TABLE', 'Persons', [{'name': 'PersonID', 'type': 'INT', 'size': None, 'constraints': []}, {'name': 'LastName', 'type': 'VARCHAR', 'size': 255, 'constraints': []}, {'name': 'FirstName', 'type': 'VARCHAR', 'size': 255, 'constraints': []}, {'name': 'Address', 'type': 'VARCHAR', 'size': 255, 'constraints': []}, {'name': 'City', 'type': 'VARCHAR', 'size': 255, 'constraints': []}])]
+2025-05-15 16:40:59,884 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = NUMBER, value = 888, position = 13), Token(type = LPAREN, value = (, position = 17), Token(type = IDENTIFIER, value = PersonID, position = 19), Token(type = KEYWORD, value = INT, position = 28), Token(type = COMMA, value = ,, position = 31), Token(type = IDENTIFIER, value = LastName, position = 33), Token(type = KEYWORD, value = VARCHAR, position = 42), Token(type = LPAREN, value = (, position = 49), Token(type = NUMBER, value = 255, position = 50), Token(type = RPAREN, value = ), position = 53), Token(type = COMMA, value = ,, position = 54), Token(type = IDENTIFIER, value = FirstName, position = 56), Token(type = KEYWORD, value = VARCHAR, position = 66), Token(type = LPAREN, value = (, position = 73), Token(type = NUMBER, value = 255, position = 74), Token(type = RPAREN, value = ), position = 77), Token(type = COMMA, value = ,, position = 78), Token(type = IDENTIFIER, value = Address, position = 80), Token(type = KEYWORD, value = VARCHAR, position = 88), Token(type = LPAREN, value = (, position = 95), Token(type = NUMBER, value = 255, position = 96), Token(type = RPAREN, value = ), position = 99), Token(type = COMMA, value = ,, position = 100), Token(type = IDENTIFIER, value = City, position = 102), Token(type = KEYWORD, value = VARCHAR, position = 107), Token(type = LPAREN, value = (, position = 114), Token(type = NUMBER, value = 255, position = 115), Token(type = RPAREN, value = ), position = 118), Token(type = RPAREN, value = ), position = 119), Token(type = SEMICOLON, value = ;, position = 120)]
+2025-05-15 16:40:59,894 - compiler.parser - DEBUG - Initialized parser with 32 tokens
+2025-05-15 16:40:59,894 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-05-15 16:40:59,894 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-05-15 16:40:59,894 - compiler.parser - DEBUG - Parsing table name....
+2025-05-15 16:40:59,894 - compiler.parser - DEBUG - Current token in table_name: Token(type = NUMBER, value = 888, position = 13)
+2025-05-15 16:40:59,894 - compiler.parser - ERROR - Expected table name, but got 888
+2025-05-17 03:55:21,515 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = IDENTIFIER, value = Name, position = 7), Token(type = KEYWORD, value = FROM, position = 12), Token(type = IDENTIFIER, value = Persons, position = 17), Token(type = KEYWORD, value = WHERE, position = 25), Token(type = IDENTIFIER, value = City, position = 31), Token(type = EQUALS, value = =, position = 36), Token(type = STRING, value = Delhi, position = 38)]
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Initialized parser with 8 tokens
+2025-05-17 03:55:21,515 - compiler.statements.select_parser - DEBUG - Parsing SELECT statement...
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 12)
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 17)
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = WHERE, position = 25)
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Parsing WHERE condition
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = City, position = 31)
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Found WHERE column: City
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 36)
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Found operator: =
+2025-05-17 03:55:21,515 - compiler.parser - DEBUG - Processed token: Token(type = STRING, value = Delhi, position = 38)
+2025-05-17 03:55:21,523 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand
+2025-05-17 03:55:21,523 - compiler.code_generator - DEBUG - Generating SELECT plan for Persons
+2025-05-17 03:55:21,523 - compiler.code_generator - DEBUG - Generated SELECT plan: [('OPEN_TABLE', 'Persons'), 'SCAN_START', ('LOAD_COLUMN', 'City'), ('LOAD_CONST', 'Delhi'), 'COMPARE_EQ', ('JUMP_IF_FALSE', 'label_1'), ('EMIT_ROW', ['Name']), ('LABEL', 'label_1'), 'SCAN_END']
+2025-05-17 03:58:22,942 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = KEYWORD, value = INTO, position = 7), Token(type = IDENTIFIER, value = Persons, position = 12), Token(type = LPAREN, value = (, position = 20), Token(type = IDENTIFIER, value = Name, position = 21), Token(type = COMMA, value = ,, position = 25), Token(type = IDENTIFIER, value = City, position = 27), Token(type = RPAREN, value = ), position = 31), Token(type = KEYWORD, value = VALUES, position = 33), Token(type = LPAREN, value = (, position = 40), Token(type = STRING, value = Lakshay, position = 41), Token(type = COMMA, value = ,, position = 50), Token(type = STRING, value = Delhi, position = 52), Token(type = RPAREN, value = ), position = 59), Token(type = SEMICOLON, value = ;, position = 60)]
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Initialized parser with 15 tokens
+2025-05-17 03:58:22,955 - compiler.statements.insert_parser - DEBUG - Parsing INSERT statement...
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO, position = 7)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Parsing table name....
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = Persons, position = 12)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Table Name Found: Persons
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = Persons, position = 12)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 20)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 31)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VALUES, position = 33)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 40)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = STRING, value = Lakshay, position = 41)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 50)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = STRING, value = Delhi, position = 52)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 59)
+2025-05-17 03:58:22,955 - compiler.parser - DEBUG - Processed token: Token(type = SEMICOLON, value = ;, position = 60)
+2025-05-17 03:58:22,960 - compiler.code_generator - INFO - Generating execution plan for InsertCommand
+2025-05-17 03:58:22,960 - compiler.code_generator - DEBUG - Generating INSERT plan for Persons
+2025-05-17 03:58:22,960 - compiler.code_generator - DEBUG - Generated INSERT plan: [('LOAD_CONST', 'Lakshay'), ('LOAD_CONST', 'Delhi'), ('INSERT_ROW', 'Persons')]

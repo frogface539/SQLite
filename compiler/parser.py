@@ -10,9 +10,10 @@ from compiler.statements.delete_parser import parse_delete
 logger = get_logger(__name__)
 
 class Parser:
-    def __init__(self, tokens):
+    def __init__(self, tokens, schema_registry=None):
         self.tokens = tokens
         self.index = 0
+        self.schema_registry = schema_registry or {}
         logger.debug(f"Initialized parser with {len(tokens)} tokens")
 
     def current_token(self):
@@ -125,30 +126,27 @@ class Parser:
         logger.debug("Parsing WHERE condition")
         
         try:
-            # Get column name
             if not self.current_token() or self.current_token().token_type != "IDENTIFIER":
                 raise ParsingError("Expected column name after WHERE")
             column = self.current_token().value
             self.consume()
             logger.debug(f"Found WHERE column: {column}")
 
-            # Handle operators (including single = for equality)
             valid_operators = {
-                "EQUALS": "=",         # Standard SQL equality
+                "EQUALS": "=",         
                 "NOTEQUALS": "!=",
                 "LESSTHAN": "<",
                 "GREATERTHAN": ">",
                 "LESSEQUAL": "<=",
                 "GREATEREQUAL": ">=",
-                "IDENTIFIER": None     # Handle column comparisons
+                "IDENTIFIER": None     
             }
 
             if not self.current_token():
                 raise ParsingError("Expected operator after column name")
 
-            # Special case: allow column-to-column comparisons
             if self.current_token().token_type == "IDENTIFIER":
-                operator = None  # Mark as column comparison
+                operator = None 
                 right_column = self.current_token().value
                 self.consume()
                 return {
@@ -157,7 +155,6 @@ class Parser:
                     "right_column": right_column
                 }
 
-            # Standard operator handling
             if self.current_token().token_type not in valid_operators:
                 raise ParsingError(
                     f"Expected comparison operator (=, !=, <, >, <=, >=), got {self.current_token().token_type}"
@@ -198,33 +195,27 @@ class Parser:
 
         while True:
             try:
-                # Get column name
                 if not self.current_token() or self.current_token().token_type != "IDENTIFIER":
                     raise ParsingError("Expected column name in SET clause")
                 column = self.current_token().value
                 self.consume()
                 logger.debug(f"Processing column assignment: {column}")
 
-                # Verify equals sign
                 if not self.current_token() or self.current_token().token_type != "EQUALS":
                     raise ParsingError("Expected '=' after column name")
                 self.consume()
 
-                # Parse the value
                 if not self.current_token():
                     raise ParsingError("Expected value after '='")
 
                 value_token = self.current_token()
                 logger.debug(f"Processing value token: {value_token}")
 
-                # Handle different value types
                 if value_token.token_type == "STRING":
-                    # For already tokenized strings (quotes included in token)
                     value = value_token.value[1:-1]  # Remove quotes
                     self.consume()
                 elif value_token.token_type == "QUOTE":
-                    # For separate quote tokens (legacy handling)
-                    self.consume()  # Consume opening quote
+                    self.consume() 
                     if not self.current_token() or self.current_token().token_type != "STRING":
                         raise ParsingError("Expected string content between quotes")
                     value = self.current_token().value
@@ -245,11 +236,10 @@ class Parser:
                 updates[column] = value
                 logger.debug(f"Assigned {column} = {value}")
 
-                # Check for more assignments
                 if not self.current_token() or self.current_token().token_type != "COMMA":
                     break
 
-                self.consume()  # consume comma
+                self.consume()  
                 logger.debug("Found comma, expecting next assignment")
 
             except ParsingError as e:
@@ -269,7 +259,7 @@ class Parser:
             self.advance()
 
             if self.current_token() and self.current_token().value == ",":
-                self.advance()  # consume comma
+                self.advance() 
                 if not (self.current_token() and self.current_token().token_type == 'IDENTIFIER'):
                     raise ParsingError("Expected column name after ','")
         return columns

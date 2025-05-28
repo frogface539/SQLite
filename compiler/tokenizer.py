@@ -18,11 +18,11 @@ patterns = [
     (r"\bSET\b", "KEYWORD"),
     (r"\bDROP\b", "KEYWORD"),
     (r"\bWHERE\b", "KEYWORD"),
-    
-    (r"\bINT\b", "KEYWORD"),  # Added INT type as a keyword
-    (r"\bTEXT\b", "KEYWORD"), # Added TEXT type as a keyword
-    (r"\bREAL\b", "KEYWORD"), # Added REAL type as a keyword
-    (r"\bBOOLEAN\b", "KEYWORD"), # Added BOOLEAN type as a keyword
+    ('VARCHAR', 'KEYWORD'),
+    (r"\bINT\b", "KEYWORD"),  # INT type as a keyword
+    (r"\bTEXT\b", "KEYWORD"), # TEXT type as a keyword
+    (r"\bREAL\b", "KEYWORD"), # REAL type as a keyword
+    (r"\bBOOLEAN\b", "KEYWORD"), # BOOLEAN type as a keyword
     (r"'[^']*'", "STRING"),  # Single-quoted strings
     (r'"[^"]*"', "STRING"),  # Double-quoted strings
     (r"[a-zA-Z_][a-zA-Z0-9_]*", "IDENTIFIER"),  # Identifiers like column names or table names

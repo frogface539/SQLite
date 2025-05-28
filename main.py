@@ -22,10 +22,8 @@ def render_tree(data, label="root"):
 
 class DatabaseEngine:
     def __init__(self):
-        # Initialize with the products table schema
         self.schema_registry = {
             "products": ["product_id", "name", "price", "stock"],
-            # Add other initial tables if needed
         }
         self.codegen = CodeGeneration()
         self.planner = PlanGenerator(schema_registry=self.schema_registry)
@@ -35,23 +33,17 @@ class DatabaseEngine:
         tokenizer = Tokenizer()
         
         try:
-            # Tokenization
             tokens = tokenizer.tokenize(query)
             
-            # Display tokens
             self._display_token_table(tokens)
 
-            # Parsing
             parser = Parser(tokens)
             parsed = parser.parse()
             
-            # Update schema if CREATE TABLE
             self._update_schema_if_needed(parsed)
 
-            # Display parse tree
             self._display_parse_tree(parsed)
 
-            # Plan generation and execution
             plan = self._generate_execution_plan(parsed)
             self._display_execution_plan(plan)
             

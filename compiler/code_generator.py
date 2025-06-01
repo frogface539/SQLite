@@ -134,102 +134,107 @@ class PlanGenerator:
         return plan
 
     def _generate_select_plan(self, cmd):
-        """Generate opcodes for SELECT:
-        [OPEN_TABLE, SCAN_START, (FILTER), EMIT_ROW, SCAN_END]"""
-        logger.debug(f"Generating SELECT plan for {cmd.table_name}")
-        
-        plan = [
-            ("OPEN_TABLE", cmd.table_name),
-            ("SCAN_START")
-        ]
-        
-        # WHERE clause handling
-        if cmd.where_clause:
-            skip_label = self._new_label()
-            plan.extend([
-                ("LOAD_COLUMN", cmd.where_clause["column"]),
-                ("LOAD_CONST", cmd.where_clause["value"]),
-                ("COMPARE_EQ"),
-                ("JUMP_IF_FALSE", skip_label)
-            ])
-        
-        # Projection
-        plan.append(("EMIT_ROW", cmd.columns))
-        
-        if cmd.where_clause:
-            plan.append(("LABEL", skip_label))
-        
-        plan.append(("SCAN_END"))
-        
-        logger.debug(f"Generated SELECT plan: {plan}")
-        return plan
+        loop_label = self._new_label()
+        end_label = self._new_label()
 
-    def _generate_update_plan(self, cmd):
-        """Generate opcodes for UPDATE:
-        [OPEN_TABLE, SCAN_START, (FILTER), UPDATE_ROW, SCAN_END]"""
-        logger.debug(f"Generating UPDATE plan for {cmd.table_name}")
-        
-        # Validation
-        if cmd.table_name not in self.schema_registry:
-            raise CodegenError(f"Table '{cmd.table_name}' not found")
-            
         plan = [
             ("OPEN_TABLE", cmd.table_name),
-            ("SCAN_START")
+            ("SCAN_START",),
+            ("LABEL", loop_label),
+            ("SCAN_NEXT",),
+            ("JUMP_IF_FALSE", end_label),
         ]
-        
-        # WHERE clause
-        if cmd.where_clause:
-            skip_label = self._new_label()
-            plan.extend([
-                ("LOAD_COLUMN", cmd.where_clause["column"]),
-                ("LOAD_CONST", cmd.where_clause["value"]),
-                ("COMPARE_EQ"),
-                ("JUMP_IF_FALSE", skip_label)
-            ])
-        
-        # Updates
-        for col, val in cmd.updates.items():
-            plan.extend([
-                ("LOAD_CONST", val),
-                ("UPDATE_COLUMN", col)
-            ])
-        
-        if cmd.where_clause:
-            plan.append(("LABEL", skip_label))
-        
-        plan.append(("SCAN_END"))
-        
-        logger.debug(f"Generated UPDATE plan: {plan}")
-        return plan
 
-    def _generate_delete_plan(self, cmd):
-        """Generate opcodes for DELETE:
-        [OPEN_TABLE, SCAN_START, (FILTER), DELETE_ROW, SCAN_END]"""
-        logger.debug(f"Generating DELETE plan for {cmd.table_name}")
-        
-        plan = [
-            ("OPEN_TABLE", cmd.table_name),
-            ("SCAN_START")
-        ]
-        
+        # Optional WHERE clause
         if cmd.where_clause:
             skip_label = self._new_label()
             plan.extend([
                 ("LOAD_COLUMN", cmd.where_clause["column"]),
-                ("LOAD_CONST", cmd.where_clause["value"]),
-                ("COMPARE_EQ"),
+                ("LOAD_CONST", str(cmd.where_clause["value"])),
+                ("COMPARE_EQ",),
                 ("JUMP_IF_FALSE", skip_label),
-                ("DELETE_ROW",),
-                ("LABEL", skip_label)
+                ("EMIT_ROW", cmd.columns),
+                ("LABEL", skip_label),
             ])
         else:
-            plan.append(("DELETE_ROW",))
-            
-        plan.append(("SCAN_END"))
-        
-        logger.debug(f"Generated DELETE plan: {plan}")
+            plan.append(("EMIT_ROW", cmd.columns))
+
+        plan.append(("JUMP", loop_label))
+        plan.append(("LABEL", end_label))
+        plan.append(("SCAN_END",))
+
         return plan
+
+
+    def _generate_update_plan(self, cmd):
+        plan = []
+
+        loop_label = self._new_label()
+        end_label = self._new_label()
+        skip_label = self._new_label()
+
+        plan.append(("OPEN_TABLE", cmd.table_name))
+        plan.append(("SCAN_START",))
+        plan.append(("LABEL", loop_label))
+        plan.append(("SCAN_NEXT",))
+        plan.append(("JUMP_IF_FALSE", end_label))
+
+        # WHERE condition
+        if cmd.where_clause:
+            plan.extend([
+                ("LOAD_COLUMN", cmd.where_clause["column"]),
+                ("LOAD_CONST", str(cmd.where_clause["value"])),
+                ("COMPARE_EQ",),
+                ("JUMP_IF_FALSE", skip_label)
+            ])
+
+        # Perform update
+        for column, value in cmd.updates.items():
+            plan.extend([
+                ("LOAD_CONST", str(value)),
+                ("UPDATE_COLUMN", column)
+            ])
+
+        plan.append(("LABEL", skip_label))
+        plan.append(("JUMP", loop_label))
+        plan.append(("LABEL", end_label))
+        plan.append(("SCAN_END",))
+
+        return plan
+
+
+    def _generate_delete_plan(self, cmd):
+        plan = []
+
+        loop_label = self._new_label()
+        end_label = self._new_label()
+        skip_label = self._new_label()
+
+        plan.append(("OPEN_TABLE", cmd.table_name))
+        plan.append(("SCAN_START",))
+        plan.append(("LABEL", loop_label))
+        plan.append(("SCAN_NEXT",))
+        plan.append(("JUMP_IF_FALSE", end_label))
+
+        # WHERE condition
+        if cmd.where_clause:
+            plan.extend([
+                ("LOAD_COLUMN", cmd.where_clause["column"]),
+                ("LOAD_CONST", str(cmd.where_clause["value"])),
+                ("COMPARE_EQ",),
+                ("JUMP_IF_FALSE", skip_label)
+            ])
+
+        # Delete if condition is met
+        plan.append(("DELETE_ROW",))
+
+        plan.append(("LABEL", skip_label))
+        plan.append(("JUMP", loop_label))
+        plan.append(("LABEL", end_label))
+        plan.append(("SCAN_END",))
+
+        return plan
+
 
     def _generate_create_table_plan(self, cmd):
         """Generate opcodes for CREATE TABLE"""

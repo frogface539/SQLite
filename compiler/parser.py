@@ -283,3 +283,8 @@ class Parser:
             raise ParsingError("Expected table name in the query.")
         
         return tables
+    
+    def peek_token(self, offset=1):
+        if self.index + offset < len(self.tokens):
+            return self.tokens[self.index + offset]
+        return None

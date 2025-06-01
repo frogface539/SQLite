@@ -5,6 +5,7 @@ from compiler.tokenizer import Tokenizer
 from compiler.parser import Parser
 from utils.errors import TokenizationError, ParsingError, CodegenError
 from compiler.code_generator import CodeGeneration, PlanGenerator
+from core.virtual_machine import VirtualMachine
 
 def render_tree(data, label="root"):
     tree = Tree(f"[bold]{label}[/bold]")
@@ -28,6 +29,7 @@ class DatabaseEngine:
         self.codegen = CodeGeneration()
         self.planner = PlanGenerator(schema_registry=self.schema_registry)
         self.console = Console()
+        self.vm = VirtualMachine(schema_registry=self.schema_registry)
         
     def execute(self, query):
         tokenizer = Tokenizer()
@@ -47,7 +49,11 @@ class DatabaseEngine:
             plan = self._generate_execution_plan(parsed)
             self._display_execution_plan(plan)
             
-            return plan
+            self.console.print("[bold green]Executing plan...[/]")
+            result = self.vm.execute(plan) 
+
+            if parsed["type"] == "SELECT" and result:
+                self._print_results_table(result)
             
         except TokenizationError as e:
             self.console.print(f"[bold red]Tokenization Error:[/] {e}")
@@ -59,6 +65,7 @@ class DatabaseEngine:
             self.console.print(f"[bold red]Unexpected Error:[/] {e}")
             raise
 
+
     def _display_token_table(self, tokens):
         table = Table(title="Token Stream", show_lines=True)
         table.add_column("Type", style="cyan")
@@ -68,6 +75,7 @@ class DatabaseEngine:
             table.add_row(token.token_type, str(token.value), str(token.position))
         self.console.print(table)
 
+
     def _update_schema_if_needed(self, parsed):
         if parsed["type"] == "CREATE":
             table_name = parsed["table_name"]
@@ -76,22 +84,44 @@ class DatabaseEngine:
             self.console.print(f"[bold yellow]Updated schema with table '{table_name}'[/]")
             self.console.print(f"[yellow]Current schema: {list(self.schema_registry.keys())}[/]")
 
+
     def _display_parse_tree(self, parsed):
         self.console.print("\n[bold green]Parsed Result Tree:[/]")
         self.console.print(render_tree(parsed, label="SQL"))
+
 
     def _generate_execution_plan(self, parsed):
         command = self.codegen.gen(parsed)
         return self.planner.generate_plan(command)
 
     def _display_execution_plan(self, plan):
-        self.console.print("\n[bold green]Execution Plan:[/]")
+        """Render the execution plan table without splitting opcodes"""
         plan_table = Table(show_header=True, show_lines=True)
         plan_table.add_column("Opcode", style="cyan")
         plan_table.add_column("Operands", style="magenta")
+        
         for op in plan:
-            plan_table.add_row(str(op[0]), str(op[1:]))
+            if isinstance(op, str):
+                op = (op,) 
+            opcode = op[0]
+            operands = str(op[1:]) if len(op) > 1 else ""
+            plan_table.add_row(opcode, operands)
+        
         self.console.print(plan_table)
+
+    def _print_results_table(self, rows):
+        if not rows:
+            self.console.print("[yellow]No results.[/]")
+            return
+
+        table = Table(show_header=True, header_style="bold magenta")
+        for col in rows[0].keys():
+            table.add_column(col)
+
+        for row in rows:
+            table.add_row(*[str(row[col]) for col in row])
+
+        self.console.print(table)
 
 def main():
     console = Console()

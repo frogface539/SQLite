@@ -6006,3 +6006,174 @@ x
 2025-06-01 22:31:38,944 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
 2025-06-01 22:31:38,944 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 14)
 2025-06-01 22:31:38,946 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand
+2025-06-01 22:54:10,473 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = CREATE, position = 0), Token(type = KEYWORD, value = TABLE, position = 7), Token(type = IDENTIFIER, value = students, position = 13), Token(type = LPAREN, value = (, position = 22), Token(type = IDENTIFIER, value = id, position = 23), Token(type = KEYWORD, value = INT, position = 26), Token(type = IDENTIFIER, value = PRIMARY, position = 30), Token(type = IDENTIFIER, value = KEY, position = 38), Token(type = COMMA, value = ,, position = 41), Token(type = IDENTIFIER, value = name, position = 43), Token(type = KEYWORD, value = VARCHAR, position = 48), Token(type = LPAREN, value = (, position = 55), Token(type = NUMBER, value = 50, position = 56), Token(type = RPAREN, value = ), position = 58), Token(type = IDENTIFIER, value = NOT, position = 60), Token(type = IDENTIFIER, value = NULL, position = 64), Token(type = COMMA, value = ,, position = 68), Token(type = IDENTIFIER, value = age, position = 70), Token(type = KEYWORD, value = INT, position = 74), Token(type = RPAREN, value = ), position = 77), Token(type = SEMICOLON, value = ;, position = 78)]
+2025-06-01 22:54:10,479 - compiler.parser - DEBUG - Initialized parser with 21 tokens
+2025-06-01 22:54:10,479 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = CREATE, position = 0)
+2025-06-01 22:54:10,479 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = TABLE, position = 7)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Parsing table name....
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = students, position = 13)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Table Name Found: students
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 13)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 22)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = id, position = 23)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 26)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = PRIMARY, position = 30)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = KEY, position = 38)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 41)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = name, position = 43)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VARCHAR, position = 48)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 55)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 50, position = 56)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 58)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = NOT, position = 60)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = NULL, position = 64)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 68)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = age, position = 70)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INT, position = 74)
+2025-06-01 22:54:10,480 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 77)
+2025-06-01 22:54:10,480 - compiler.statements.create_parser - INFO - Updated schema registry with table students
+2025-06-01 22:54:10,486 - compiler.code_generator - DEBUG - Creating Table: students with columns: [{'name': 'id', 'type': 'INT', 'size': None, 'constraints': ['PRIMARY KEY']}, {'name': 'name', 'type': 'VARCHAR', 'size': 50, 'constraints': ['NOT NULL']}, {'name': 'age', 'type': 'INT', 'size': None, 'constraints': []}]
+2025-06-01 22:54:10,486 - compiler.code_generator - INFO - Table students creation with columns finished.
+2025-06-01 22:54:10,486 - compiler.code_generator - INFO - Generating execution plan for CreateTableCommand
+2025-06-01 22:54:10,486 - compiler.code_generator - DEBUG - Generating CREATE TABLE plan for students
+2025-06-01 22:54:10,486 - compiler.code_generator - DEBUG - Generated CREATE plan: [('CREATE_TABLE', 'students', [{'name': 'id', 'type': 'INT', 'size': None, 'constraints': ['PRIMARY KEY']}, {'name': 'name', 'type': 'VARCHAR', 'size': 50, 'constraints': ['NOT NULL']}, {'name': 'age', 'type': 'INT', 'size': None, 'constraints': []}])]
+2025-06-01 22:54:10,488 - core.virtual_machine - INFO - Created table 'students' with columns: [{'name': 'id', 'type': 'INT', 'size': None, 'constraints': ['PRIMARY KEY']}, {'name': 'name', 'type': 'VARCHAR', 'size': 50, 'constraints': ['NOT NULL']}, {'name': 'age', 'type': 'INT', 'size': None, 'constraints': []}]
+2025-06-01 22:54:10,491 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = KEYWORD, value = INTO, position = 7), Token(type = IDENTIFIER, value = students, position = 12), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = id, position = 22), Token(type = COMMA, value = ,, position = 24), Token(type = IDENTIFIER, value = name, position = 26), Token(type = COMMA, value = ,, position = 30), Token(type = IDENTIFIER, value = age, position = 32), Token(type = RPAREN, value = ), position = 35), Token(type = KEYWORD, value = VALUES, position = 37), Token(type = LPAREN, value = (, position = 44), Token(type = NUMBER, value = 1, position = 45), Token(type = COMMA, value = ,, position = 46), Token(type = STRING, value = Alice, position = 48), Token(type = COMMA, value = ,, position = 55), Token(type = NUMBER, value = 21, position = 57), Token(type = RPAREN, value = ), position = 59), Token(type = SEMICOLON, value = ;, position = 60)]
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Initialized parser with 19 tokens
+2025-06-01 22:54:10,496 - compiler.statements.insert_parser - DEBUG - Parsing INSERT statement...
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO, position = 7)
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Parsing table name....
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Table Name Found: students
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,496 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 35)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VALUES, position = 37)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 44)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 1, position = 45)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 46)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = STRING, value = Alice, position = 48)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 55)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 21, position = 57)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 59)
+2025-06-01 22:54:10,497 - compiler.parser - DEBUG - Processed token: Token(type = SEMICOLON, value = ;, position = 60)
+2025-06-01 22:54:10,500 - compiler.code_generator - INFO - Generating execution plan for InsertCommand
+2025-06-01 22:54:10,500 - compiler.code_generator - DEBUG - Generating INSERT plan for students
+2025-06-01 22:54:10,500 - compiler.code_generator - DEBUG - Generated INSERT plan: [('LOAD_CONST', '1'), ('LOAD_CONST', 'Alice'), ('LOAD_CONST', '21'), ('INSERT_ROW', 'students')]
+2025-06-01 22:54:10,502 - core.virtual_machine - DEBUG - Inserted row into 'students': {'age': '21', 'name': 'Alice', 'id': '1'}
+2025-06-01 22:54:10,503 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = KEYWORD, value = INTO, position = 7), Token(type = IDENTIFIER, value = students, position = 12), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = id, position = 22), Token(type = COMMA, value = ,, position = 24), Token(type = IDENTIFIER, value = name, position = 26), Token(type = COMMA, value = ,, position = 30), Token(type = IDENTIFIER, value = age, position = 32), Token(type = RPAREN, value = ), position = 35), Token(type = KEYWORD, value = VALUES, position = 37), Token(type = LPAREN, value = (, position = 44), Token(type = NUMBER, value = 2, position = 45), Token(type = COMMA, value = ,, position = 46), Token(type = STRING, value = Bob, position = 48), Token(type = COMMA, value = ,, position = 53), Token(type = NUMBER, value = 22, position = 55), Token(type = RPAREN, value = ), position = 57), Token(type = SEMICOLON, value = ;, position = 58)]
+2025-06-01 22:54:10,510 - compiler.parser - DEBUG - Initialized parser with 19 tokens
+2025-06-01 22:54:10,510 - compiler.statements.insert_parser - DEBUG - Parsing INSERT statement...
+2025-06-01 22:54:10,510 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-06-01 22:54:10,510 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO, position = 7)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Parsing table name....
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Table Name Found: students
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 35)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VALUES, position = 37)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 44)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 2, position = 45)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 46)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = STRING, value = Bob, position = 48)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 53)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 22, position = 55)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 57)
+2025-06-01 22:54:10,511 - compiler.parser - DEBUG - Processed token: Token(type = SEMICOLON, value = ;, position = 58)
+2025-06-01 22:54:10,516 - compiler.code_generator - INFO - Generating execution plan for InsertCommand
+2025-06-01 22:54:10,516 - compiler.code_generator - DEBUG - Generating INSERT plan for students
+2025-06-01 22:54:10,516 - compiler.code_generator - DEBUG - Generated INSERT plan: [('LOAD_CONST', '2'), ('LOAD_CONST', 'Bob'), ('LOAD_CONST', '22'), ('INSERT_ROW', 'students')]
+2025-06-01 22:54:10,517 - core.virtual_machine - DEBUG - Inserted row into 'students': {'age': '22', 'name': 'Bob', 'id': '2'}
+2025-06-01 22:54:10,518 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = INSERT, position = 0), Token(type = KEYWORD, value = INTO, position = 7), Token(type = IDENTIFIER, value = students, position = 12), Token(type = LPAREN, value = (, position = 21), Token(type = IDENTIFIER, value = id, position = 22), Token(type = COMMA, value = ,, position = 24), Token(type = IDENTIFIER, value = name, position = 26), Token(type = COMMA, value = ,, position = 30), Token(type = IDENTIFIER, value = age, position = 32), Token(type = RPAREN, value = ), position = 35), Token(type = KEYWORD, value = VALUES, position = 37), Token(type = LPAREN, value = (, position = 44), Token(type = NUMBER, value = 3, position = 45), Token(type = COMMA, value = ,, position = 46), Token(type = STRING, value = Charlie, position = 48), Token(type = COMMA, value = ,, position = 57), Token(type = NUMBER, value = 23, position = 59), Token(type = RPAREN, value = ), position = 61), Token(type = SEMICOLON, value = ;, position = 62)]
+2025-06-01 22:54:10,520 - compiler.parser - DEBUG - Initialized parser with 19 tokens
+2025-06-01 22:54:10,520 - compiler.statements.insert_parser - DEBUG - Parsing INSERT statement...
+2025-06-01 22:54:10,520 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INSERT, position = 0)
+2025-06-01 22:54:10,520 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = INTO, position = 7)
+2025-06-01 22:54:10,520 - compiler.parser - DEBUG - Parsing table name....
+2025-06-01 22:54:10,520 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Table Name Found: students
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 21)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 35)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = VALUES, position = 37)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = LPAREN, value = (, position = 44)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 3, position = 45)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 46)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = STRING, value = Charlie, position = 48)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = COMMA, value = ,, position = 57)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 23, position = 59)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = RPAREN, value = ), position = 61)
+2025-06-01 22:54:10,525 - compiler.parser - DEBUG - Processed token: Token(type = SEMICOLON, value = ;, position = 62)
+2025-06-01 22:54:10,528 - compiler.code_generator - INFO - Generating execution plan for InsertCommand
+2025-06-01 22:54:10,528 - compiler.code_generator - DEBUG - Generating INSERT plan for students
+2025-06-01 22:54:10,528 - compiler.code_generator - DEBUG - Generated INSERT plan: [('LOAD_CONST', '3'), ('LOAD_CONST', 'Charlie'), ('LOAD_CONST', '23'), ('INSERT_ROW', 'students')]
+2025-06-01 22:54:10,528 - core.virtual_machine - DEBUG - Inserted row into 'students': {'age': '23', 'name': 'Charlie', 'id': '3'}
+2025-06-01 22:54:10,532 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = students, position = 14), Token(type = SEMICOLON, value = ;, position = 22)]
+2025-06-01 22:54:10,532 - compiler.parser - DEBUG - Initialized parser with 5 tokens
+2025-06-01 22:54:10,532 - compiler.statements.select_parser - DEBUG - Parsing SELECT statement...
+2025-06-01 22:54:10,532 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-06-01 22:54:10,532 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-06-01 22:54:10,532 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-06-01 22:54:10,532 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 14)
+2025-06-01 22:54:10,532 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand
+2025-06-01 22:54:10,542 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = UPDATE, position = 0), Token(type = IDENTIFIER, value = students, position = 7), Token(type = KEYWORD, value = SET, position = 16), Token(type = IDENTIFIER, value = age, position = 20), Token(type = EQUALS, value = =, position = 24), Token(type = NUMBER, value = 25, position = 26), Token(type = KEYWORD, value = WHERE, position = 29), Token(type = IDENTIFIER, value = id, position = 35), Token(type = EQUALS, value = =, position = 38), Token(type = NUMBER, value = 1, position = 40), Token(type = SEMICOLON, value = ;, position = 41)]
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Initialized parser with 11 tokens
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - INFO - Starting UPDATE statement parsing
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = UPDATE, position = 0)
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - DEBUG - Consumed UPDATE keyword
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 7)
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - DEBUG - Identified table: students
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SET, position = 16)
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - DEBUG - Found SET keyword
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Starting SET clause parsing at index 3
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = age, position = 20)
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processing column assignment: age
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 24)
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processing value token: Token(type = NUMBER, value = 25, position = 26)
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 25, position = 26)
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Assigned age = 25
+2025-06-01 22:54:10,545 - compiler.parser - INFO - Successfully parsed SET clause with 1 assignments
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - DEBUG - Parsed 1 column assignments
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = WHERE, position = 29)
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - DEBUG - Parsing WHERE clause
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Parsing WHERE condition
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = id, position = 35)
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Found WHERE column: id
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 38)
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Found operator: =
+2025-06-01 22:54:10,545 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 1, position = 40)
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - DEBUG - Parsed condition: {'type': 'value_compare', 'column': 'id', 'operator': '=', 'value': '1'}
+2025-06-01 22:54:10,545 - compiler.statements.update_parser - INFO - Successfully parsed UPDATE statement for table 'students'
+2025-06-01 22:54:10,545 - compiler.code_generator - INFO - Generating execution plan for UpdateTableCommand
+2025-06-01 22:54:10,555 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = DELETE, position = 0), Token(type = KEYWORD, value = FROM, position = 7), Token(type = IDENTIFIER, value = students, position = 12), Token(type = KEYWORD, value = WHERE, position = 21), Token(type = IDENTIFIER, value = id, position = 27), Token(type = EQUALS, value = =, position = 30), Token(type = NUMBER, value = 2, position = 32), Token(type = SEMICOLON, value = ;, position = 33)]
+2025-06-01 22:54:10,557 - compiler.parser - DEBUG - Initialized parser with 8 tokens
+2025-06-01 22:54:10,557 - compiler.statements.delete_parser - INFO - Parsing DELETE statement....
+2025-06-01 22:54:10,557 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = DELETE, position = 0)
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 7)
+2025-06-01 22:54:10,558 - compiler.statements.delete_parser - DEBUG - Token before table_name: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Parsing table name....
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Current token in table_name: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Table Name Found: students
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 12)
+2025-06-01 22:54:10,558 - compiler.statements.delete_parser - DEBUG - DELETE FROM: students
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = WHERE, position = 21)
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Parsing WHERE condition
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = id, position = 27)
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Found WHERE column: id
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Processed token: Token(type = EQUALS, value = =, position = 30)
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Found operator: =
+2025-06-01 22:54:10,558 - compiler.parser - DEBUG - Processed token: Token(type = NUMBER, value = 2, position = 32)
+2025-06-01 22:54:10,558 - compiler.statements.delete_parser - DEBUG - WHERE condition: {'type': 'value_compare', 'column': 'id', 'operator': '=', 'value': '2'}
+2025-06-01 22:54:10,558 - compiler.statements.delete_parser - INFO - DELETE parsed: table = students, WHERE condition = {'type': 'value_compare', 'column': 'id', 'operator': '=', 'value': '2'}
+2025-06-01 22:54:10,560 - compiler.code_generator - INFO - Generating execution plan for DeleteCommand
+2025-06-01 22:54:10,564 - core.virtual_machine - DEBUG - Deleted row: {'age': '22', 'name': 'Bob', 'id': '2'}
+2025-06-01 22:54:10,564 - compiler.tokenizer - INFO - Tokenized successfully: [Token(type = KEYWORD, value = SELECT, position = 0), Token(type = ASTERISK, value = *, position = 7), Token(type = KEYWORD, value = FROM, position = 9), Token(type = IDENTIFIER, value = students, position = 14), Token(type = SEMICOLON, value = ;, position = 22)]
+2025-06-01 22:54:10,564 - compiler.parser - DEBUG - Initialized parser with 5 tokens
+2025-06-01 22:54:10,568 - compiler.statements.select_parser - DEBUG - Parsing SELECT statement...
+2025-06-01 22:54:10,568 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = SELECT, position = 0)
+2025-06-01 22:54:10,568 - compiler.parser - DEBUG - Processed token: Token(type = ASTERISK, value = *, position = 7)
+2025-06-01 22:54:10,568 - compiler.parser - DEBUG - Processed token: Token(type = KEYWORD, value = FROM, position = 9)
+2025-06-01 22:54:10,568 - compiler.parser - DEBUG - Processed token: Token(type = IDENTIFIER, value = students, position = 14)
+2025-06-01 22:54:10,570 - compiler.code_generator - INFO - Generating execution plan for SelectTableCommand

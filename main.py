@@ -1,3 +1,5 @@
+import sys
+import os
 from rich.table import Table
 from rich.console import Console
 from rich.tree import Tree
@@ -39,7 +41,7 @@ class DatabaseEngine:
             
             self._display_token_table(tokens)
 
-            parser = Parser(tokens)
+            parser = Parser(tokens, schema_registry=self.schema_registry)
             parsed = parser.parse()
             
             self._update_schema_if_needed(parsed)
@@ -126,11 +128,31 @@ class DatabaseEngine:
 def main():
     console = Console()
     db = DatabaseEngine()
-    
+
+    if len(sys.argv) > 1:
+        filepath = sys.argv[1]
+        print(f"Args: {sys.argv}")
+        if not os.path.isfile(filepath):
+            console.print(f"[red]Error:[/] File '{filepath}' does not exist.")
+            return
+
+        with open(filepath, 'r') as f:
+            sql_script = f.read()
+
+        #Split statements by semicolon
+        statements = [stmt.strip() for stmt in sql_script.split(";") if stmt.strip()]
+
+        console.print(f"[bold blue]Executing SQL script from {filepath}[/]")
+        for i, stmt in enumerate(statements, start=1):
+            console.print(f"\n[cyan]>> Statement {i}:[/] [white]{stmt}[/]")
+            db.execute(stmt + ";")  
+
+        return
+
+    # Interactive mode
     console.print("[bold blue]SQLite-like Database Shell[/]")
-    console.print("[yellow]Initial tables: products[/]")
     console.print("[yellow]Type 'exit' to quit[/]\n")
-    
+
     while True:
         try:
             query = input("SQL> ").strip()
@@ -138,14 +160,15 @@ def main():
                 break
             if not query:
                 continue
-                
+
             db.execute(query)
-            
+
         except KeyboardInterrupt:
             console.print("\n[yellow]Exiting...[/]")
             break
         except EOFError:
             break
+
 
 if __name__ == "__main__":
     main()

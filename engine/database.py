@@ -1,31 +1,36 @@
 import sys
+from struct import unpack
+from rich.panel import Panel
+from rich.table import Table
+from rich import box
 from rich.console import Console
-
 from compiler.tokenizer import Tokenizer
 from compiler.parser import Parser
 from compiler.code_generator import CodeGeneration, PlanGenerator
 from core.virtual_machine import VirtualMachine
 from backend.os_interface import OSInterface, DEFAULT_PAGE_SIZE
 from backend.pager import Pager
-from utils.errors import TokenizationError, ParsingError, CodegenError
+from backend.b_tree import BTree, BTreeNode
+from utils.errors import (
+    TokenizationError, ParsingError, CodegenError, ExecutionError, BTreeError
+)
 from ui.renderer import (
-    print_token_table,
-    print_plan_table,
-    print_results_table,
-    render_tree
+    print_token_table, print_plan_table, print_results_table, render_tree
 )
 
 class DatabaseEngine:
     def __init__(self, db_file="example.db"):
         self.console = Console()
-        self.schema_registry = {"products": ["product_id", "name", "price", "stock"]}
-        self.codegen = CodeGeneration()
-        self.planner = PlanGenerator(schema_registry=self.schema_registry)
-        self.vm = VirtualMachine(schema_registry=self.schema_registry)
-
         self.os = OSInterface(db_file)
         self.os.open_file()
         self.pager = Pager(self.os, cache_size=4)
+        self.btree = BTree(self.pager) 
+        self.schema_registry = {
+            "products": ["product_id", "name", "price", "stock"]
+        }
+        self.codegen = CodeGeneration()
+        self.planner = PlanGenerator(schema_registry=self.schema_registry)
+        self.vm = VirtualMachine(schema_registry=self.schema_registry)
 
     def execute(self, query):
         tokenizer = Tokenizer()
@@ -48,8 +53,15 @@ class DatabaseEngine:
 
             if parsed["type"] == "SELECT" and result:
                 print_results_table(result)
+            
+            if query.strip().upper().startswith("INSERT_BTEST"):
+                parts = query.strip().split()
+                for num in parts[1:]:
+                    self.btree.insert(int(num))
+                self.console.print(f"[green]Inserted into BTree: {self.btree.root.keys}[/]")
+                return
 
-        except (TokenizationError, ParsingError, CodegenError) as e:
+        except (TokenizationError, ParsingError, CodegenError, ExecutionError) as e:
             self.console.print(f"[bold red]{type(e).__name__}:[/] {e}")
         except Exception as e:
             self.console.print(f"[bold red]Unexpected Error:[/] {e}")
@@ -67,24 +79,55 @@ class DatabaseEngine:
         command = self.codegen.gen(parsed)
         return self.planner.generate_plan(command)
 
-    def test_pager_write_read(self):
-        from rich.table import Table
-        for i in range(5):
-            page = self.pager.get_page(i)
-            label = f"Page{i}".encode("utf-8")
-            page.data = label + b'\x00' * (DEFAULT_PAGE_SIZE - len(label))
-            self.pager.mark_dirty(page)
-            self.console.print(f"[green]-> Page {i} marked dirty and cached.[/]")
-        self.pager.flush_all()
+    def inspect_pager(self):
+        console = Console()
+        console.rule("[bold cyan]Testing Pager Cache Contents[/]")
 
         table = Table(show_header=True, header_style="bold magenta")
         table.add_column("Page Number", style="cyan")
-        table.add_column("Content", style="green")
-        for i in range(5):
-            page = self.pager.get_page(i)
-            prefix = page.data[:10].decode("utf-8", errors="ignore").strip("\x00")
-            table.add_row(str(i), prefix)
+        table.add_column("Content (Prefix)", style="green")
+
+        try:
+            max_page = max(self.pager.cache.keys() or [0])
+        except Exception:
+            max_page = 0
+
+        for page_num in range(max_page + 1):
+            try:
+                page = self.pager.get_page(page_num)
+                prefix = page.data[:20].decode("utf-8", errors="ignore").strip("\x00")
+
+                if prefix:
+                    table.add_row(str(page_num), prefix)
+            except Exception as e:
+                console.print(f"[red]Error reading page {page_num}:[/] {e}")
+
+        console.print(table)
+
+
+    def test_btree_paging(self):
+        self.console.rule("[bold cyan]Testing B-Tree Paging")
+
+        table = Table(show_header=True, header_style="bold magenta")
+        table.add_column("Page Number", style="cyan")
+        table.add_column("Node Type", style="green")
+        table.add_column("Key Count", style="yellow")
+        table.add_column("Keys", style="magenta")
+
+        for page_num in range(self.pager.num_pages):
+            try:
+                page = self.pager.get_page(page_num)
+                node = BTreeNode.deserialize(page.data)
+                table.add_row(str(page_num),
+                            "Leaf" if node.is_leaf else "Internal",
+                            str(len(node.keys)),
+                            ", ".join(map(str, node.keys)))
+            except Exception:
+                table.add_row(str(page_num), "-", "-", "-")
+
         self.console.print(table)
+        self.console.print("[green]✓ B-tree paging test complete.[/]")
+
 
     def close(self):
         try:

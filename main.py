@@ -6,7 +6,18 @@ from engine.database import DatabaseEngine
 def main():
     console = Console()
     db = DatabaseEngine()
-    db.test_pager_write_read()
+
+    console.rule("[bold cyan]Initial Pager State")
+    db.inspect_pager()
+
+    console.rule("[bold cyan]Inserting Keys into B-Tree")
+    for key in [10,15,20,30]:
+        db.btree.insert(key)
+
+    console.print(f"[bold green]BTree Root Keys:[/] {db.btree.root.keys}")
+
+    console.rule("[bold cyan]Pager State After B-Tree Inserts")
+    db.test_btree_paging()
 
     try:
         if len(sys.argv) > 1:
